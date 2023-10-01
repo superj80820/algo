@@ -41,6 +41,8 @@ func leastInterval(tasks []byte, n int) int {
 					NextTime: time + n},
 				)
 			}
+		} else {
+			time = queue[0].NextTime
 		}
 		if len(queue) != 0 && time >= queue[0].NextTime {
 			first := dequeue(&queue)
@@ -69,11 +71,11 @@ func leastInterval(tasks []byte, n int) int {
 		freqCount[task]++
 	}
 	var maxFreq int
-	for _, val := range checkCount {
+	for _, val := range freqCount {
 		maxFreq = max(maxFreq, val)
 	}
 	var maxFreqCount int
-	for _, val := range checkCount {
+	for _, val := range freqCount {
 		if val == maxFreq {
 			maxFreqCount++
 		}
