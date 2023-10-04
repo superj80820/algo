@@ -8,6 +8,8 @@ import (
 	"github.com/superj80820/algo/fun/2048/enum"
 )
 
+const WinNum int = 2048
+
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
 
 type GameHandler struct {
@@ -21,7 +23,6 @@ type GameHandler struct {
 
 func (game *GameHandler) NewGame(rowSize, colSize int) bool {
 	if rowSize <= 1 && colSize <= 1 {
-		fmt.Println("adf")
 		return false
 	}
 	game.Data = make([][]int, rowSize)
@@ -29,7 +30,6 @@ func (game *GameHandler) NewGame(rowSize, colSize int) bool {
 		game.Data[row] = make([]int, colSize)
 	}
 	game.Data = randInput(game.Data)
-	fmt.Println("hi")
 	return true
 }
 
@@ -78,7 +78,7 @@ func (game GameHandler) CheckAvailable() bool {
 func (game GameHandler) CheckWin() bool {
 	for row, line := range game.Data {
 		for col := range line {
-			if game.Data[row][col] == 2048 {
+			if game.Data[row][col] == WinNum {
 				return true
 			}
 		}
