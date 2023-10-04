@@ -19,19 +19,23 @@ func main() {
 			Action.Scan()
 			switch strings.ToLower(Action.Text()) {
 			case "w":
+				fmt.Println("UP!")
 				ch <- enum.UP
 			case "s":
+				fmt.Println("DOWN!")
 				ch <- enum.DOWN
 			case "a":
+				fmt.Println("LEFT!")
 				ch <- enum.LEFT
 			case "d":
+				fmt.Println("RIGHT!")
 				ch <- enum.RIGHT
 			}
 		}
 	}()
 
 	gameHandler := handler.CreateGameHandler()
-	gameHandler.NewGame(4, 4)
+	gameHandler.NewGame(30, 30)
 	gameHandler.PrintBoard()
 
 	for {
