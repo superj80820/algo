@@ -35,7 +35,7 @@ func main() {
 	}()
 
 	gameHandler := handler.CreateGameHandler()
-	gameHandler.NewGame(30, 30)
+	gameHandler.NewGame(4, 4)
 	gameHandler.PrintBoard()
 
 	for {
