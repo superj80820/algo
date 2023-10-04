@@ -32,6 +32,7 @@ func main() {
 	js.Global().Set("sendKey", sendKey())
 
 	gameHandler := handler.GetSingleTonGameHandler()
+	gameHandler.NewGame(4)
 
 	printDOM(gameHandler.ToHTMLString())
 
