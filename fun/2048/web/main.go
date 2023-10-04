@@ -6,6 +6,8 @@ import (
 
 	"github.com/superj80820/algo/fun/2048/enum"
 	"github.com/superj80820/algo/fun/2048/handler"
+
+	"github.com/pkg/errors"
 )
 
 var keyMap = map[int]interface{}{
@@ -39,7 +41,9 @@ func main() {
 	gameHandler := handler.GetSingleTonGameHandler()
 	gameHandler.NewGame(4)
 
-	printDOM(gameHandler.ToHTMLString())
+	if err := printDOM(gameHandler.ToHTMLString()); err != nil {
+		fmt.Println("get error: ", err.Error())
+	}
 
 	select {}
 }
@@ -60,28 +64,29 @@ func sendKey() js.Func {
 			if !gameHandler.CheckAvailable() {
 				curPrintStr += "\n\n\u00A0\u00A0\u00A0You lose!"
 			}
-			printDOM(curPrintStr)
+			if err := printDOM(curPrintStr); err != nil {
+				fmt.Println("get error: ", err.Error())
+			}
 		case enum.Number:
 			gameHandler.NewGame(int(k))
 			curPrintStr += gameHandler.ToHTMLString()
-			printDOM(curPrintStr)
+			if err := printDOM(curPrintStr); err != nil {
+				fmt.Println("get error: ", err.Error())
+			}
 		}
 		return nil
 	})
 }
 
-func printDOM(val string) string {
+func printDOM(val string) error {
 	jsDoc := js.Global().Get("document")
 	if !jsDoc.Truthy() {
-		return "document is not defined"
+		return errors.New("document is not defined")
 	}
 	containerEl := jsDoc.Call("getElementById", "board")
 	if !containerEl.Truthy() {
-		return "board is not find"
+		return errors.New("board is not find")
 	}
-	// p := jsDoc.Call("createElement", "p")
-	// p.Set("innerText", val)
-	// containerEl.Call("append", p)
 	containerEl.Set("innerText", val)
-	return "nil"
+	return nil
 }

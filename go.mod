@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/bxcodec/faker/v4 v4.0.0-beta.3 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
