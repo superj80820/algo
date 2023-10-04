@@ -67,7 +67,7 @@ func main() {
 	}
 	isSetDoneCh <- true
 	gameHandler := handler.CreateGameHandler()
-	gameHandler.NewGame(boardSize, boardSize)
+	gameHandler.NewGame(boardSize)
 	gameHandler.PrintBoard()
 
 	for {

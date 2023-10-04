@@ -3,6 +3,8 @@ package handler
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/superj80820/algo/fun/2048/enum"
@@ -11,6 +13,8 @@ import (
 const WinNum int = 2048
 
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
+
+var singletonGameHandler *GameHandler
 
 type GameHandler struct {
 	Processor map[enum.Action]struct {
@@ -21,21 +25,29 @@ type GameHandler struct {
 	Data [][]int
 }
 
-func (game *GameHandler) NewGame(rowSize, colSize int) bool {
-	if rowSize <= 1 && colSize <= 1 {
+func GetSingleTonGameHandler() *GameHandler {
+	if singletonGameHandler == nil {
+		singletonGameHandler = CreateGameHandler()
+	}
+	return singletonGameHandler
+}
+
+func (game *GameHandler) NewGame(size int) bool {
+	if size <= 1 {
 		return false
 	}
-	game.Data = make([][]int, rowSize)
+	game.Data = make([][]int, size)
 	for row := range game.Data {
-		game.Data[row] = make([]int, colSize)
+		game.Data[row] = make([]int, size)
 	}
-	game.Data = randInput(game.Data)
+	fmt.Println(size / 2)
+	game.Data = randInput(game.Data, size/2)
 	return true
 }
 
 func (game *GameHandler) NewDefaultGame() {
 	game.Data = [][]int{
-		{1, 4, 1024, 1024},
+		{1, 4, 1024, 2},
 		{4, 12, 6, 6},
 		{9, 10, 11, 12},
 		{13, 14, 15, 16},
@@ -53,6 +65,30 @@ func (game GameHandler) PrintBoard() {
 	for _, line := range game.Data {
 		fmt.Println(line)
 	}
+}
+
+func (game GameHandler) ToHTMLString() string {
+	strLines := make([]string, len(game.Data))
+	for row, line := range game.Data {
+		strLine := make([]string, len(game.Data[0]))
+		for col, val := range line {
+			strLine[col] = fillNum(strconv.Itoa(val), 4)
+		}
+		strLines[row] = strings.Join(strLine, " ")
+	}
+	return strings.Join(strLines, "\n")
+}
+
+func fillNum(str string, fillLen int) string {
+	strLen := len(str)
+	if strLen >= fillLen {
+		return str
+	}
+	var res string
+	for i := 0; i < fillLen-strLen; i++ {
+		res += "\u00A0"
+	}
+	return res + str
 }
 
 func (game GameHandler) CheckAvailable() bool {
@@ -117,14 +153,11 @@ func CreateGameHandler() *GameHandler {
 	}
 }
 
-func randInput(input [][]int) [][]int {
-	rowRand1, colRand1 := rand.Intn(len(input)), rand.Intn(len(input[0]))
-	var rowRand2, colRand2 int
-	for rowRand1 == rowRand2 && colRand1 == colRand2 {
-		rowRand2, colRand2 = rand.Intn(len(input)), rand.Intn(len(input[0]))
+func randInput(input [][]int, maxCount int) [][]int {
+	randRows, randCols := rand.Perm(len(input)), rand.Perm(len(input[0]))
+	for idx := 0; idx < maxCount; idx++ {
+		input[randRows[idx]][randCols[idx]] = getRandomNum()
 	}
-	input[rowRand1][colRand1] = getRandomNum()
-	input[rowRand2][colRand2] = getRandomNum()
 	return input
 }
 
