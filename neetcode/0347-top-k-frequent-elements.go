@@ -98,7 +98,7 @@ func (pq *PriorityQueue) update(item *Item, value int, priority int) {
 	heap.Fix(pq, item.index)
 }
 
-// time complexity: O(n) + O(k * logn)
+// time complexity: O(n + k * logn)
 // space complexity: O(n)
 func topKFrequent(nums []int, k int) []int {
 	check := make(map[int]int)
