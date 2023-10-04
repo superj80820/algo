@@ -19,20 +19,26 @@ type GameHandler struct {
 	Data [][]int
 }
 
-func (game *GameHandler) NewGame(rowSize, colSize int) {
+func (game *GameHandler) NewGame(rowSize, colSize int) bool {
+	if rowSize <= 1 && colSize <= 1 {
+		fmt.Println("adf")
+		return false
+	}
 	game.Data = make([][]int, rowSize)
 	for row := range game.Data {
 		game.Data[row] = make([]int, colSize)
 	}
 	game.Data = randInput(game.Data)
+	fmt.Println("hi")
+	return true
 }
 
 func (game *GameHandler) NewDefaultGame() {
 	game.Data = [][]int{
-		{0, 4, 0, 0},
-		{2, 0, 0, 0},
-		{2, 0, 0, 0},
-		{8, 8, 2, 2},
+		{1, 4, 1024, 1024},
+		{4, 12, 6, 6},
+		{9, 10, 11, 12},
+		{13, 14, 15, 16},
 	}
 }
 
@@ -47,6 +53,53 @@ func (game GameHandler) PrintBoard() {
 	for _, line := range game.Data {
 		fmt.Println(line)
 	}
+}
+
+func (game GameHandler) CheckAvailable() bool {
+	for row, line := range game.Data {
+		for col := range line {
+			if game.Data[row][col] == 0 {
+				return true
+			}
+		}
+	}
+
+	for row, line := range game.Data {
+		for col := range line {
+			if game.checkNeighborsIsSame(row, col) {
+				return true
+			}
+		}
+	}
+
+	return false
+}
+
+func (game GameHandler) CheckWin() bool {
+	for row, line := range game.Data {
+		for col := range line {
+			if game.Data[row][col] == 2048 {
+				return true
+			}
+		}
+	}
+
+	return false
+}
+
+func (game GameHandler) checkNeighborsIsSame(row, col int) bool {
+	target := game.Data[row][col]
+	if col-1 >= 0 && game.Data[row][col-1] == target {
+		return true
+	} else if row-1 >= 0 && game.Data[row-1][col] == target {
+		return true
+	} else if col+1 < len(game.Data) && game.Data[row][col+1] == target {
+		return true
+	} else if row+1 < len(game.Data) && game.Data[row+1][col] == target {
+		return true
+	}
+	return false
+
 }
 
 func CreateGameHandler() *GameHandler {
@@ -65,10 +118,10 @@ func CreateGameHandler() *GameHandler {
 }
 
 func randInput(input [][]int) [][]int {
-	rowRand1, colRand1 := rand.Intn(len(input)-1), rand.Intn(len(input[0])-1)
+	rowRand1, colRand1 := rand.Intn(len(input)), rand.Intn(len(input[0]))
 	var rowRand2, colRand2 int
 	for rowRand1 == rowRand2 && colRand1 == colRand2 {
-		rowRand2, colRand2 = rand.Intn(len(input)-1), rand.Intn(len(input[0])-1)
+		rowRand2, colRand2 = rand.Intn(len(input)), rand.Intn(len(input[0]))
 	}
 	input[rowRand1][colRand1] = getRandomNum()
 	input[rowRand2][colRand2] = getRandomNum()
@@ -209,11 +262,7 @@ func addRandCell(input [][]int) {
 		}
 	}
 	if len(randomCells) > 0 {
-		var randIdx int
-		if len(randomCells) > 1 {
-			randIdx = rand.Intn(len(randomCells) - 1)
-		}
-		randomCell := randomCells[randIdx]
+		randomCell := randomCells[rand.Intn(len(randomCells))]
 		input[randomCell[0]][randomCell[1]] = getRandomNum()
 	}
 }
