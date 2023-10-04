@@ -19,14 +19,14 @@ const (
 )
 
 var gameProcessor = map[Action]struct {
-	Move       func(input [][]int)
-	Merge      func(input [][]int)
-	AddRandNum func(input [][]int)
+	Move        func(input [][]int)
+	Merge       func(input [][]int)
+	AddRandCell func(input [][]int)
 }{
-	UP:    {Move: upMove, Merge: upMerge, AddRandNum: addRandNum},
-	DOWN:  {Move: downMove, Merge: downMerge, AddRandNum: addRandNum},
-	LEFT:  {Move: leftMove, Merge: leftMerge, AddRandNum: addRandNum},
-	RIGHT: {Move: rightMove, Merge: rightMerge, AddRandNum: addRandNum},
+	UP:    {Move: upMove, Merge: upMerge, AddRandCell: addRandCell},
+	DOWN:  {Move: downMove, Merge: downMerge, AddRandCell: addRandCell},
+	LEFT:  {Move: leftMove, Merge: leftMerge, AddRandCell: addRandCell},
+	RIGHT: {Move: rightMove, Merge: rightMerge, AddRandCell: addRandCell},
 }
 
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
@@ -97,7 +97,7 @@ func gameProcess(input [][]int, action Action) {
 	gameProcessor[action].Move(input)
 	gameProcessor[action].Merge(input)
 	gameProcessor[action].Move(input)
-	gameProcessor[action].AddRandNum(input)
+	gameProcessor[action].AddRandCell(input)
 }
 
 func upMove(input [][]int) {
@@ -224,7 +224,7 @@ func rightMerge(input [][]int) {
 	}
 }
 
-func addRandNum(input [][]int) {
+func addRandCell(input [][]int) {
 	var randomCells [][2]int
 	for col := 0; col < len(input[0]); col++ {
 		for row := 0; row < len(input); row++ {
