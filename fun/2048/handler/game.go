@@ -1,79 +1,67 @@
-package main
+package handler
 
 import (
-	"bufio"
 	"fmt"
 	"math/rand"
-	"os"
-	"strings"
 	"time"
+
+	"github.com/superj80820/algo/fun/2048/enum"
 )
-
-type Action int
-
-const (
-	UP Action = iota + 1
-	DOWN
-	LEFT
-	RIGHT
-)
-
-var gameProcessor = map[Action]struct {
-	Move        func(input [][]int)
-	Merge       func(input [][]int)
-	AddRandCell func(input [][]int)
-}{
-	UP:    {Move: upMove, Merge: upMerge, AddRandCell: addRandCell},
-	DOWN:  {Move: downMove, Merge: downMerge, AddRandCell: addRandCell},
-	LEFT:  {Move: leftMove, Merge: leftMerge, AddRandCell: addRandCell},
-	RIGHT: {Move: rightMove, Merge: rightMerge, AddRandCell: addRandCell},
-}
 
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
 
-func main() {
-	ch := make(chan Action)
-
-	go func() {
-		for {
-			Action := bufio.NewScanner(os.Stdin)
-			Action.Scan()
-			switch strings.ToLower(Action.Text()) {
-			case "w":
-				ch <- UP
-			case "s":
-				ch <- DOWN
-			case "a":
-				ch <- LEFT
-			case "d":
-				ch <- RIGHT
-			}
-		}
-	}()
-
-	// input := [][]int{
-	// 	{0, 4, 0, 0},
-	// 	{2, 0, 0, 0},
-	// 	{2, 0, 0, 0},
-	// 	{8, 8, 2, 2},
-	// }
-
-	input := make([][]int, 4)
-	for row := range input {
-		input[row] = make([]int, 4)
+type GameHandler struct {
+	Processor map[enum.Action]struct {
+		Move        func(input [][]int)
+		Merge       func(input [][]int)
+		AddRandCell func(input [][]int)
 	}
+	Data [][]int
+}
 
-	input = randInput(input)
-
-	printBoard(input)
-
-	for {
-		action := <-ch
-		fmt.Println("-------")
-		gameProcess(input, action)
-		printBoard(input)
+func (game *GameHandler) NewGame(rowSize, colSize int) {
+	game.Data = make([][]int, rowSize)
+	for row := range game.Data {
+		game.Data[row] = make([]int, colSize)
 	}
+	game.Data = randInput(game.Data)
+}
 
+func (game *GameHandler) NewDefaultGame() {
+	game.Data = [][]int{
+		{0, 4, 0, 0},
+		{2, 0, 0, 0},
+		{2, 0, 0, 0},
+		{8, 8, 2, 2},
+	}
+}
+
+func (game *GameHandler) Process(action enum.Action) {
+	game.Processor[action].Move(game.Data)
+	game.Processor[action].Merge(game.Data)
+	game.Processor[action].Move(game.Data)
+	game.Processor[action].AddRandCell(game.Data)
+}
+
+func (game GameHandler) PrintBoard() {
+	for _, line := range game.Data {
+		fmt.Println(line)
+	}
+}
+
+func CreateGameHandler() *GameHandler {
+	return &GameHandler{
+		Processor: map[enum.Action]struct {
+			Move        func(input [][]int)
+			Merge       func(input [][]int)
+			AddRandCell func(input [][]int)
+		}{
+			enum.UP:    {Move: upMove, Merge: upMerge, AddRandCell: addRandCell},
+			enum.DOWN:  {Move: downMove, Merge: downMerge, AddRandCell: addRandCell},
+			enum.LEFT:  {Move: leftMove, Merge: leftMerge, AddRandCell: addRandCell},
+			enum.RIGHT: {Move: rightMove, Merge: rightMerge, AddRandCell: addRandCell},
+		},
+	}
 }
 
 func randInput(input [][]int) [][]int {
@@ -85,19 +73,6 @@ func randInput(input [][]int) [][]int {
 	input[rowRand1][colRand1] = getRandomNum()
 	input[rowRand2][colRand2] = getRandomNum()
 	return input
-}
-
-func printBoard(input [][]int) {
-	for _, line := range input {
-		fmt.Println(line)
-	}
-}
-
-func gameProcess(input [][]int, action Action) {
-	gameProcessor[action].Move(input)
-	gameProcessor[action].Merge(input)
-	gameProcessor[action].Move(input)
-	gameProcessor[action].AddRandCell(input)
 }
 
 func upMove(input [][]int) {
