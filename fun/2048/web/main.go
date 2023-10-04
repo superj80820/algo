@@ -9,10 +9,15 @@ import (
 )
 
 var keyMap = map[int]interface{}{
-	37: enum.LEFT,
 	38: enum.UP,
-	39: enum.RIGHT,
 	40: enum.DOWN,
+	37: enum.LEFT,
+	39: enum.RIGHT,
+
+	87: enum.UP,
+	83: enum.DOWN,
+	65: enum.LEFT,
+	68: enum.RIGHT,
 
 	48: enum.ZERO,
 	49: enum.ONE,
