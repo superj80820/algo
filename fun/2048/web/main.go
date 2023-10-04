@@ -54,7 +54,7 @@ func sendKey() js.Func {
 			if !gameHandler.CheckAvailable() {
 				curPrintStr += "\n\n\u00A0\u00A0\u00A0You lose!"
 			}
-		case enum.NUMBER:
+		case enum.Number:
 			gameHandler.NewGame(int(k))
 			curPrintStr += gameHandler.ToHTMLString()
 		}
