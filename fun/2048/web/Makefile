@@ -1,2 +1,2 @@
 build:
-	GOOS=js GOARCH=wasm go build -o ./../../../docs/main.wasm ./web/main.go
+	GOOS=js GOARCH=wasm go build -o ./../../../docs/2048/main.wasm ./main.go
