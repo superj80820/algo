@@ -59,6 +59,9 @@ func sendKey() js.Func {
 		fmt.Println("get key: ", touchKey)
 		switch k := keyMap[touchKey].(type) {
 		case enum.Action:
+			if gameHandler.CheckWin() || !gameHandler.CheckAvailable() {
+				return nil
+			}
 			gameHandler.Process(k)
 			curPrintStr += gameHandler.ScoreToHTMLString() + "\n"
 			curPrintStr += gameHandler.BoardToHTMLString()
