@@ -17,9 +17,8 @@ var r = rand.New(rand.NewSource(time.Now().UnixNano()))
 var singletonGameHandler *GameHandler
 
 type GameHandler struct {
-	Processors map[enum.Action]*gameProcessor
-	Data       [][]int
-	Score      int
+	Data  [][]int
+	Score int
 }
 
 type gameProcessor struct {
@@ -40,6 +39,7 @@ func (game *GameHandler) NewGame(size int) bool {
 		return false
 	}
 	game.Data = make([][]int, size)
+	game.Score = 0
 	for row := range game.Data {
 		game.Data[row] = make([]int, size)
 	}
@@ -58,10 +58,10 @@ func (game *GameHandler) NewDefaultGame() {
 }
 
 func (game *GameHandler) Process(action enum.Action) {
-	game.Processors[action].Move(game.Data)
-	game.Score = game.Processors[action].Merge(game.Data)
-	game.Processors[action].Move(game.Data)
-	game.Processors[action].AddRandCell(game.Data)
+	game.Move(action)
+	game.Merge(action)
+	game.Move(action)
+	game.AddRandCell()
 }
 
 func (game GameHandler) PrintBoard() {
@@ -146,14 +146,7 @@ func (game GameHandler) checkNeighborsIsSame(row, col int) bool {
 }
 
 func CreateGameHandler() *GameHandler {
-	return &GameHandler{
-		Processors: map[enum.Action]*gameProcessor{
-			enum.UP:    {Move: upMove, Merge: upMerge, AddRandCell: addRandCell},
-			enum.DOWN:  {Move: downMove, Merge: downMerge, AddRandCell: addRandCell},
-			enum.LEFT:  {Move: leftMove, Merge: leftMerge, AddRandCell: addRandCell},
-			enum.RIGHT: {Move: rightMove, Merge: rightMerge, AddRandCell: addRandCell},
-		},
-	}
+	return &GameHandler{}
 }
 
 func randInput(input [][]int, maxCount int) [][]int {
@@ -275,7 +268,33 @@ func (b *BoardTravelIterator) Next() ([]int, bool, bool) {
 	return []int{curRow, curCol}, isBegin, false
 }
 
-func move(input [][]int, travelIterator *BoardTravelIterator) {
+func (game *GameHandler) Merge(action enum.Action) {
+	switch action {
+	case enum.UP:
+		game.merge(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.UP))
+	case enum.DOWN:
+		game.merge(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.DOWN))
+	case enum.LEFT:
+		game.merge(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.LEFT))
+	case enum.RIGHT:
+		game.merge(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.RIGHT))
+	}
+}
+
+func (game *GameHandler) Move(action enum.Action) {
+	switch action {
+	case enum.UP:
+		game.move(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.UP))
+	case enum.DOWN:
+		game.move(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.DOWN))
+	case enum.LEFT:
+		game.move(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.LEFT))
+	case enum.RIGHT:
+		game.move(CreateBoardTravelIterator(len(game.Data), len(game.Data[0]), enum.RIGHT))
+	}
+}
+
+func (game *GameHandler) move(travelIterator *BoardTravelIterator) {
 	var swapCellsPosition [][]int
 	for {
 		position, isBegin, isDone := travelIterator.Next()
@@ -288,25 +307,22 @@ func move(input [][]int, travelIterator *BoardTravelIterator) {
 		}
 		row, col := position[0], position[1]
 
-		if input[row][col] == 0 {
+		if game.Data[row][col] == 0 {
 			swapCellsPosition = append(swapCellsPosition, []int{row, col})
 		} else {
 			if len(swapCellsPosition) != 0 {
 				var swapPosition []int
 				swapPosition, swapCellsPosition = swapCellsPosition[0], swapCellsPosition[1:]
 				swapCellsPosition = append(swapCellsPosition, []int{row, col})
-				input[swapPosition[0]][swapPosition[1]], input[row][col] = input[row][col], input[swapPosition[0]][swapPosition[1]]
+				game.Data[swapPosition[0]][swapPosition[1]], game.Data[row][col] = game.Data[row][col], game.Data[swapPosition[0]][swapPosition[1]]
 			}
 		}
 	}
 }
 
-func merge(input [][]int, travelIterator *BoardTravelIterator) int {
+func (game *GameHandler) merge(travelIterator *BoardTravelIterator) int {
 	pre := -1
-	var (
-		prePosition []int
-		score       int
-	)
+	var prePosition []int
 	for {
 		position, isBegin, isDone := travelIterator.Next()
 		if isDone {
@@ -318,54 +334,29 @@ func merge(input [][]int, travelIterator *BoardTravelIterator) int {
 		}
 		row, col := position[0], position[1]
 
-		if pre == input[row][col] {
-			input[prePosition[0]][prePosition[1]] = input[row][col] + pre
-			score += input[prePosition[0]][prePosition[1]]
-			input[row][col] = 0
+		if pre == game.Data[row][col] {
+			game.Data[prePosition[0]][prePosition[1]] = game.Data[row][col] + pre
+			game.Score += game.Data[prePosition[0]][prePosition[1]]
+			game.Data[row][col] = 0
 		}
-		pre = input[row][col]
+		pre = game.Data[row][col]
 		prePosition = position
 	}
-	return score
+	return game.Score
 }
 
-func upMove(input [][]int) {
-	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.UP))
-}
-func upMerge(input [][]int) int {
-	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.UP))
-}
-func downMove(input [][]int) {
-	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.DOWN))
-}
-func downMerge(input [][]int) int {
-	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.DOWN))
-}
-func leftMove(input [][]int) {
-	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.LEFT))
-}
-func leftMerge(input [][]int) int {
-	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.LEFT))
-}
-func rightMove(input [][]int) {
-	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.RIGHT))
-}
-func rightMerge(input [][]int) int {
-	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.RIGHT))
-}
-
-func addRandCell(input [][]int) {
+func (game *GameHandler) AddRandCell() {
 	var randomCells [][2]int
-	for col := 0; col < len(input[0]); col++ {
-		for row := 0; row < len(input); row++ {
-			if input[row][col] == 0 {
+	for col := 0; col < len(game.Data[0]); col++ {
+		for row := 0; row < len(game.Data); row++ {
+			if game.Data[row][col] == 0 {
 				randomCells = append(randomCells, [2]int{row, col})
 			}
 		}
 	}
 	if len(randomCells) > 0 {
 		randomCell := randomCells[rand.Intn(len(randomCells))]
-		input[randomCell[0]][randomCell[1]] = getRandomNum()
+		game.Data[randomCell[0]][randomCell[1]] = getRandomNum()
 	}
 }
 
