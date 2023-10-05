@@ -43,7 +43,6 @@ func (game *GameHandler) NewGame(size int) bool {
 	for row := range game.Data {
 		game.Data[row] = make([]int, size)
 	}
-	fmt.Println(size / 2)
 	game.Data = randInput(game.Data, size/2)
 	return true
 }
@@ -298,7 +297,6 @@ func (game *GameHandler) move(travelIterator *BoardTravelIterator) {
 	var swapCellsPosition [][]int
 	for {
 		position, isBegin, isDone := travelIterator.Next()
-		fmt.Println(position, isBegin, isDone)
 		if isDone {
 			break
 		}
