@@ -41,7 +41,10 @@ func main() {
 	gameHandler := handler.GetSingleTonGameHandler()
 	gameHandler.NewGame(4)
 
-	if err := printDOM(gameHandler.ToHTMLString()); err != nil {
+	var curPrintStr string
+	curPrintStr += gameHandler.ScoreToHTMLString() + "\n"
+	curPrintStr += gameHandler.BoardToHTMLString()
+	if err := printDOM(curPrintStr); err != nil {
 		fmt.Println("get error: ", err.Error())
 	}
 
@@ -57,7 +60,8 @@ func sendKey() js.Func {
 		switch k := keyMap[touchKey].(type) {
 		case enum.Action:
 			gameHandler.Process(k)
-			curPrintStr += gameHandler.ToHTMLString()
+			curPrintStr += gameHandler.ScoreToHTMLString() + "\n"
+			curPrintStr += gameHandler.BoardToHTMLString()
 			if gameHandler.CheckWin() {
 				curPrintStr += "\n\n\u00A0\u00A0\u00A0You Win!"
 			}
@@ -69,7 +73,8 @@ func sendKey() js.Func {
 			}
 		case enum.Number:
 			gameHandler.NewGame(int(k))
-			curPrintStr += gameHandler.ToHTMLString()
+			curPrintStr += gameHandler.ScoreToHTMLString() + "\n"
+			curPrintStr += gameHandler.BoardToHTMLString()
 			if err := printDOM(curPrintStr); err != nil {
 				fmt.Println("get error: ", err.Error())
 			}

@@ -17,12 +17,15 @@ var r = rand.New(rand.NewSource(time.Now().UnixNano()))
 var singletonGameHandler *GameHandler
 
 type GameHandler struct {
-	Processor map[enum.Action]struct {
-		Move        func(input [][]int)
-		Merge       func(input [][]int)
-		AddRandCell func(input [][]int)
-	}
-	Data [][]int
+	Processors map[enum.Action]*gameProcessor
+	Data       [][]int
+	Score      int
+}
+
+type gameProcessor struct {
+	Move        func(input [][]int)
+	Merge       func(input [][]int) int
+	AddRandCell func(input [][]int)
 }
 
 func GetSingleTonGameHandler() *GameHandler {
@@ -55,10 +58,10 @@ func (game *GameHandler) NewDefaultGame() {
 }
 
 func (game *GameHandler) Process(action enum.Action) {
-	game.Processor[action].Move(game.Data)
-	game.Processor[action].Merge(game.Data)
-	game.Processor[action].Move(game.Data)
-	game.Processor[action].AddRandCell(game.Data)
+	game.Processors[action].Move(game.Data)
+	game.Score = game.Processors[action].Merge(game.Data)
+	game.Processors[action].Move(game.Data)
+	game.Processors[action].AddRandCell(game.Data)
 }
 
 func (game GameHandler) PrintBoard() {
@@ -67,7 +70,11 @@ func (game GameHandler) PrintBoard() {
 	}
 }
 
-func (game GameHandler) ToHTMLString() string {
+func (game GameHandler) ScoreToHTMLString() string {
+	return "\u00A0\u00A0\u00A0\u00A0\u00A0SCORE: " + strconv.Itoa(game.Score)
+}
+
+func (game GameHandler) BoardToHTMLString() string {
 	strLines := make([]string, len(game.Data))
 	for row, line := range game.Data {
 		strLine := make([]string, len(game.Data[0]))
@@ -140,11 +147,7 @@ func (game GameHandler) checkNeighborsIsSame(row, col int) bool {
 
 func CreateGameHandler() *GameHandler {
 	return &GameHandler{
-		Processor: map[enum.Action]struct {
-			Move        func(input [][]int)
-			Merge       func(input [][]int)
-			AddRandCell func(input [][]int)
-		}{
+		Processors: map[enum.Action]*gameProcessor{
 			enum.UP:    {Move: upMove, Merge: upMerge, AddRandCell: addRandCell},
 			enum.DOWN:  {Move: downMove, Merge: downMerge, AddRandCell: addRandCell},
 			enum.LEFT:  {Move: leftMove, Merge: leftMerge, AddRandCell: addRandCell},
@@ -161,128 +164,194 @@ func randInput(input [][]int, maxCount int) [][]int {
 	return input
 }
 
+type BoardTravelIterator struct {
+	curRow int
+	curCol int
+	rowMax int
+	colMax int
+	isDone bool
+	action enum.Action
+}
+
+func CreateBoardTravelIterator(rowMax, colMax int, action enum.Action) *BoardTravelIterator {
+	var curRow, curCol int
+	switch action {
+	case enum.RIGHT:
+		curRow = 0
+		curCol = colMax - 1
+	case enum.LEFT:
+		curRow = 0
+		curCol = 0
+	case enum.UP:
+		curRow = 0
+		curCol = 0
+	case enum.DOWN:
+		curRow = rowMax - 1
+		curCol = 0
+	}
+
+	return &BoardTravelIterator{
+		curRow: curRow,
+		curCol: curCol,
+		rowMax: rowMax,
+		colMax: colMax,
+		action: action,
+	}
+}
+
+func (b *BoardTravelIterator) Next() ([]int, bool, bool) {
+	curRow, curCol := b.curRow, b.curCol
+	var isBegin bool
+	switch b.action {
+	case enum.RIGHT:
+		if b.isDone {
+			return []int{}, false, true
+		}
+		if b.curCol == b.colMax-1 {
+			isBegin = true
+		}
+		if b.curCol > 0 {
+			b.curCol--
+		} else if b.curCol == 0 {
+			b.curCol = b.colMax - 1
+			if b.curRow < b.rowMax-1 {
+				b.curRow++
+			} else if b.curRow == b.rowMax-1 {
+				b.isDone = true
+			}
+		}
+	case enum.LEFT:
+		if b.isDone {
+			return []int{}, false, true
+		}
+		if b.curCol == 0 {
+			isBegin = true
+		}
+		if b.curCol < b.colMax-1 {
+			b.curCol++
+		} else if b.curCol == b.colMax-1 {
+			b.curCol = 0
+			if b.curRow < b.rowMax-1 {
+				b.curRow++
+			} else if b.curRow == b.rowMax-1 {
+				b.isDone = true
+			}
+		}
+	case enum.UP:
+		if b.isDone {
+			return []int{}, false, true
+		}
+		if b.curRow == 0 {
+			isBegin = true
+		}
+		if b.curRow < b.rowMax-1 {
+			b.curRow++
+		} else if b.curRow == b.rowMax-1 {
+			b.curRow = 0
+			if b.curCol < b.colMax-1 {
+				b.curCol++
+			} else if b.curCol == b.colMax-1 {
+				b.isDone = true
+			}
+		}
+	case enum.DOWN:
+		if b.isDone {
+			return []int{}, false, true
+		}
+		if b.curRow == b.rowMax-1 {
+			isBegin = true
+		}
+		if b.curRow > 0 {
+			b.curRow--
+		} else if b.curRow == 0 {
+			b.curRow = b.rowMax - 1
+			if b.curCol < b.colMax-1 {
+				b.curCol++
+			} else if b.curCol == b.colMax-1 {
+				b.isDone = true
+			}
+		}
+	}
+	return []int{curRow, curCol}, isBegin, false
+}
+
+func move(input [][]int, travelIterator *BoardTravelIterator) {
+	var swapCellsPosition [][]int
+	for {
+		position, isBegin, isDone := travelIterator.Next()
+		fmt.Println(position, isBegin, isDone)
+		if isDone {
+			break
+		}
+		if isBegin {
+			swapCellsPosition = [][]int{}
+		}
+		row, col := position[0], position[1]
+
+		if input[row][col] == 0 {
+			swapCellsPosition = append(swapCellsPosition, []int{row, col})
+		} else {
+			if len(swapCellsPosition) != 0 {
+				var swapPosition []int
+				swapPosition, swapCellsPosition = swapCellsPosition[0], swapCellsPosition[1:]
+				swapCellsPosition = append(swapCellsPosition, []int{row, col})
+				input[swapPosition[0]][swapPosition[1]], input[row][col] = input[row][col], input[swapPosition[0]][swapPosition[1]]
+			}
+		}
+	}
+}
+
+func merge(input [][]int, travelIterator *BoardTravelIterator) int {
+	pre := -1
+	var (
+		prePosition []int
+		score       int
+	)
+	for {
+		position, isBegin, isDone := travelIterator.Next()
+		if isDone {
+			break
+		}
+		if isBegin {
+			pre = -1
+			prePosition = []int{}
+		}
+		row, col := position[0], position[1]
+
+		if pre == input[row][col] {
+			input[prePosition[0]][prePosition[1]] = input[row][col] + pre
+			score += input[prePosition[0]][prePosition[1]]
+			input[row][col] = 0
+		}
+		pre = input[row][col]
+		prePosition = position
+	}
+	return score
+}
+
 func upMove(input [][]int) {
-	for col := 0; col < len(input[0]); col++ {
-		var swapCellsRow []int
-		for row := 0; row < len(input); row++ {
-			if input[row][col] == 0 {
-				swapCellsRow = append(swapCellsRow, row)
-			} else {
-				if len(swapCellsRow) != 0 {
-					var swapRow int
-					swapRow, swapCellsRow = swapCellsRow[0], swapCellsRow[1:]
-					swapCellsRow = append(swapCellsRow, row)
-					input[swapRow][col], input[row][col] = input[row][col], input[swapRow][col]
-				}
-			}
-		}
-	}
+	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.UP))
 }
-
-func upMerge(input [][]int) {
-	for col := 0; col < len(input[0]); col++ {
-		pre := -1
-		for row := 0; row < len(input); row++ {
-			if pre == input[row][col] {
-				input[row-1][col] = input[row][col] + pre
-				input[row][col] = 0
-			}
-			pre = input[row][col]
-		}
-	}
+func upMerge(input [][]int) int {
+	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.UP))
 }
-
 func downMove(input [][]int) {
-	for col := 0; col < len(input[0]); col++ {
-		var swapCellsRow []int
-		for row := len(input) - 1; row >= 0; row-- {
-			if input[row][col] == 0 {
-				swapCellsRow = append(swapCellsRow, row)
-			} else {
-				if len(swapCellsRow) != 0 {
-					var swapRow int
-					swapRow, swapCellsRow = swapCellsRow[0], swapCellsRow[1:]
-					swapCellsRow = append(swapCellsRow, row)
-					input[swapRow][col], input[row][col] = input[row][col], input[swapRow][col]
-				}
-			}
-		}
-	}
+	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.DOWN))
 }
-
-func downMerge(input [][]int) {
-	for col := 0; col < len(input[0]); col++ {
-		pre := -1
-		for row := len(input) - 1; row >= 0; row-- {
-			if pre == input[row][col] {
-				input[row+1][col] = input[row][col] + pre
-				input[row][col] = 0
-			}
-			pre = input[row][col]
-		}
-	}
+func downMerge(input [][]int) int {
+	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.DOWN))
 }
-
 func leftMove(input [][]int) {
-	for row := 0; row < len(input); row++ {
-		var swapCellsCol []int
-		for col := 0; col < len(input[0]); col++ {
-			if input[row][col] == 0 {
-				swapCellsCol = append(swapCellsCol, col)
-			} else {
-				if len(swapCellsCol) != 0 {
-					var swapCol int
-					swapCol, swapCellsCol = swapCellsCol[0], swapCellsCol[1:]
-					swapCellsCol = append(swapCellsCol, col)
-					input[row][swapCol], input[row][col] = input[row][col], input[row][swapCol]
-				}
-			}
-		}
-	}
+	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.LEFT))
 }
-
-func leftMerge(input [][]int) {
-	for row := 0; row < len(input); row++ {
-		pre := -1
-		for col := 0; col < len(input[0]); col++ {
-			if pre == input[row][col] {
-				input[row][col-1] = input[row][col] + pre
-				input[row][col] = 0
-			}
-			pre = input[row][col]
-		}
-	}
+func leftMerge(input [][]int) int {
+	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.LEFT))
 }
-
 func rightMove(input [][]int) {
-	for row := 0; row < len(input); row++ {
-		var swapCellsCol []int
-		for col := len(input[0]) - 1; col >= 0; col-- {
-			if input[row][col] == 0 {
-				swapCellsCol = append(swapCellsCol, col)
-			} else {
-				if len(swapCellsCol) != 0 {
-					var swapCol int
-					swapCol, swapCellsCol = swapCellsCol[0], swapCellsCol[1:]
-					swapCellsCol = append(swapCellsCol, col)
-					input[row][swapCol], input[row][col] = input[row][col], input[row][swapCol]
-				}
-			}
-		}
-	}
+	move(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.RIGHT))
 }
-
-func rightMerge(input [][]int) {
-	for row := 0; row < len(input); row++ {
-		pre := -1
-		for col := len(input[0]) - 1; col >= 0; col-- {
-			if pre == input[row][col] {
-				input[row][col+1] = input[row][col] + pre
-				input[row][col] = 0
-			}
-			pre = input[row][col]
-		}
-	}
+func rightMerge(input [][]int) int {
+	return merge(input, CreateBoardTravelIterator(len(input), len(input[0]), enum.RIGHT))
 }
 
 func addRandCell(input [][]int) {
