@@ -42,16 +42,16 @@ func (game *GameHandler) NewGame(size int) bool {
 	for row := range game.Data {
 		game.Data[row] = make([]int, size)
 	}
-	game.Data = game.randInput()
+	game.randInput()
 	return true
 }
 
 func (game *GameHandler) NewDefaultGame() {
 	game.Data = [][]int{
-		{1, 4, 1024, 2},
-		{4, 12, 6, 6},
-		{9, 10, 11, 12},
-		{13, 14, 15, 16},
+		{2, 4, 1024, 2},
+		{4, 12, 8, 16},
+		{8, 24, 32, 12},
+		{12, 24, 2, 12},
 	}
 }
 
@@ -230,11 +230,10 @@ func (game *GameHandler) getRandomNum() int {
 	return 4
 }
 
-func (game *GameHandler) randInput() [][]int {
+func (game *GameHandler) randInput() {
 	maxCount := len(game.Data) / 2
 	randRows, randCols := rand.Perm(len(game.Data)), rand.Perm(len(game.Data[0]))
 	for idx := 0; idx < maxCount; idx++ {
 		game.Data[randRows[idx]][randCols[idx]] = game.getRandomNum()
 	}
-	return game.Data
 }
