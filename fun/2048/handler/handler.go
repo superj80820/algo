@@ -42,7 +42,7 @@ func (game *GameHandler) NewGame(size int) bool {
 	for row := range game.Data {
 		game.Data[row] = make([]int, size)
 	}
-	game.Data = randInput(game.Data, size/2)
+	game.Data = game.randInput()
 	return true
 }
 
@@ -218,11 +218,11 @@ func (game *GameHandler) AddRandCell() {
 	}
 	if len(randomCells) > 0 {
 		randomCell := randomCells[rand.Intn(len(randomCells))]
-		game.Data[randomCell[0]][randomCell[1]] = getRandomNum()
+		game.Data[randomCell[0]][randomCell[1]] = game.getRandomNum()
 	}
 }
 
-func getRandomNum() int {
+func (game *GameHandler) getRandomNum() int {
 	randNum := r.Float64()
 	if randNum < 0.75 {
 		return 2
@@ -230,10 +230,11 @@ func getRandomNum() int {
 	return 4
 }
 
-func randInput(input [][]int, maxCount int) [][]int {
-	randRows, randCols := rand.Perm(len(input)), rand.Perm(len(input[0]))
+func (game *GameHandler) randInput() [][]int {
+	maxCount := len(game.Data) / 2
+	randRows, randCols := rand.Perm(len(game.Data)), rand.Perm(len(game.Data[0]))
 	for idx := 0; idx < maxCount; idx++ {
-		input[randRows[idx]][randCols[idx]] = getRandomNum()
+		game.Data[randRows[idx]][randCols[idx]] = game.getRandomNum()
 	}
-	return input
+	return game.Data
 }
