@@ -1,5 +1,8 @@
+// tags: union-find
+
 // time complexity: O(n*a(n)) ~= O(n)
 // space complexity: O(n)
+// `n` is length of node
 // `a` is inverse Ackermann function
 func findRedundantConnection(edges [][]int) []int {
 	par := make([]int, len(edges)+1)
