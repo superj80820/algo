@@ -1,4 +1,4 @@
-// tags: 3star, prim's-algo, kruskal-algo(todo), heap
+// tags: star3, prim's-algo, kruskal-algo(todo), heap
 
 import "container/heap"
 
