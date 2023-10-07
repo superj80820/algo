@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/superj80820/algo/fun/2048/enum"
+	"github.com/superj80820/algo/playground/fun/2048/enum"
 )
 
 type GameHandlerWithMock struct {

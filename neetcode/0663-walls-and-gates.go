@@ -1,4 +1,4 @@
-// tags: BFS
+// tags: bfs
 
 /**
  * @param rooms: m x n 2D grid

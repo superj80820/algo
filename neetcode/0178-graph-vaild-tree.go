@@ -1,4 +1,4 @@
-// tags: union-find, DFS
+// tags: union-find, dfs
 
 /**
  * @param n: An integer
