@@ -1,3 +1,5 @@
+// tags: star1, linked-list
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {

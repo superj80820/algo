@@ -28,6 +28,8 @@ func fetchNeighbors(node int) []int {
 	return neighbors
 }
 
+// time complexity: O(v+e)
+// space complexity: O(v)
 func searchGraph(node int) {
 	queue := []int{node}
 	visited := make(map[int]bool)
@@ -46,13 +48,15 @@ func searchGraph(node int) {
 	}
 }
 
+// time complexity: O(v+e)
+// space complexity: O(v)
 func searchGraphAsync(node int) {
 	queue := []int{node}
 	visited := make(map[int]bool)
 	visited[node] = true
 	for len(queue) != 0 {
 		curLen := len(queue)
-		receiveNeighborsCh := make(chan []int)
+		neighborsCh := make(chan []int)
 		wg := new(sync.WaitGroup)
 		wg.Add(curLen)
 		for i := 0; i < curLen; i++ {
@@ -60,14 +64,14 @@ func searchGraphAsync(node int) {
 			fmt.Println(front)
 			go func(front int) {
 				defer wg.Done()
-				receiveNeighborsCh <- fetchNeighbors(front)
+				neighborsCh <- fetchNeighbors(front)
 			}(front)
 		}
 		go func() {
 			wg.Wait()
-			close(receiveNeighborsCh)
+			close(neighborsCh)
 		}()
-		for neighbors := range receiveNeighborsCh {
+		for neighbors := range neighborsCh {
 			for _, neighbor := range neighbors {
 				if _, ok := visited[neighbor]; ok {
 					continue
@@ -77,7 +81,6 @@ func searchGraphAsync(node int) {
 			}
 		}
 	}
-
 }
 
 func dequeue(queue *[]int) int {

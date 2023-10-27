@@ -1,3 +1,5 @@
+// tags: star2, graphs
+
 // time complexity: O(v+e)
 // space complexity: O(v+e)
 // `v` is number of courses
