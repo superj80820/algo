@@ -142,16 +142,18 @@ func CreateFileInfo(fileName, tagsInfo string) (*FileInfo, error) {
 	}
 	name := fileName[5:strings.Index(fileName, ".go")]
 
+	mainTag := "todo"
+
 	target := "// tags: "
 	if len(tagsInfo) < len(target) || target != tagsInfo[:len(target)] { // TODO: york
 		return &FileInfo{
 			ID:               id,
 			Name:             name,
+			MainTag:          mainTag,
 			IsFreeInLeetcode: true,
 		}, nil
 	}
 	tags := strings.Split(tagsInfo[len(target):], ", ")
-	mainTag := "todo"
 	if GetSingletonTopicOrder().Visited[tags[0]] {
 		mainTag = tags[0]
 	} else {
