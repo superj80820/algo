@@ -71,13 +71,13 @@ func GetSingletonTopicOrder() *topicOrder {
 }
 
 func main() {
-	files, err := os.ReadDir("../neetcode")
+	files, err := os.ReadDir("./neetcode")
 	if err != nil {
 		panic(err)
 	}
 	fileInfos := make([]*FileInfo, len(files))
 	for idx, file := range files {
-		data, err := os.ReadFile("../neetcode/" + file.Name())
+		data, err := os.ReadFile("./neetcode/" + file.Name())
 		if err != nil {
 			panic(err)
 		}
@@ -123,7 +123,7 @@ func main() {
 	}
 	md.WriteString(mdLeetCodeListEnd)
 
-	data, err := os.ReadFile("../README.md")
+	data, err := os.ReadFile("./README.md")
 	if err != nil {
 		panic(err)
 	}
@@ -132,7 +132,7 @@ func main() {
 		md.String() +
 		mdFile[strings.Index(mdFile, mdLeetCodeListEnd)+len(mdLeetCodeListEnd):]
 
-	os.WriteFile("../README.md", []byte(newMDFile), 0644)
+	os.WriteFile("./README.md", []byte(newMDFile), 0644)
 }
 
 func CreateFileInfo(fileName, tagsInfo string) (*FileInfo, error) {
