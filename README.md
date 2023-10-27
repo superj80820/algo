@@ -24,6 +24,7 @@
 ### binary-search
 | Name | Star | Tags |
 | -------- | -------- | -------- |
+|[4. median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)|3||
 ### linked-list
 | Name | Star | Tags |
 | -------- | -------- | -------- |
