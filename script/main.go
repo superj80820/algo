@@ -19,6 +19,14 @@ type FileInfo struct {
 	IsFreeInLeetcode bool
 }
 
+func (f FileInfo) StarToEmoji() string {
+	var build strings.Builder
+	for i := 0; i < f.Star; i++ {
+		build.WriteString("⭐")
+	}
+	return build.String()
+}
+
 type topicOrder struct {
 	Data    []string
 	Visited map[string]bool
@@ -107,7 +115,7 @@ func main() {
 			md.WriteString("|")
 			md.WriteString(fmt.Sprintf("[%d. %s](https://leetcode.com/problems/%s/)", fileInfo.ID, fileInfo.Name, fileInfo.Name))
 			md.WriteString("|")
-			md.WriteString(strconv.Itoa(fileInfo.Star))
+			md.WriteString(fileInfo.StarToEmoji())
 			md.WriteString("|")
 			md.WriteString(strings.Join(fileInfo.OtherTags, ", "))
 			md.WriteString("|\n")
