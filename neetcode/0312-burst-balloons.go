@@ -1,4 +1,4 @@
-// tags: star2, dp
+// tags: 2d-dp, star2
 
 // time complexity: O(n^3)
 // space complexity: O(n^2)

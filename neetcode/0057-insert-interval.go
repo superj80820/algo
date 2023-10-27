@@ -1,4 +1,4 @@
-// tags: interval
+// tags: intervals
 
 func insert(intervals [][]int, newInterval []int) [][]int {
 	var res [][]int

@@ -1,4 +1,4 @@
-// tags: star2, trees
+// tags: trees, star2
 
 /**
  * Definition for a binary tree node.

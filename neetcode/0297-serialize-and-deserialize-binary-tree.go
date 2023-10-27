@@ -1,4 +1,4 @@
-// tags: star1, trees
+// tags: trees, star1
 
 import (
 	"strconv"

@@ -1,4 +1,4 @@
-// tags: star3, tries
+// tags: tries, star3
 
 type Tries struct {
 	Children [26]*Tries

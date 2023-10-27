@@ -1,4 +1,4 @@
-// tags : star3, binary-search
+// tags : binary-search, star3
 
 import "math"
 

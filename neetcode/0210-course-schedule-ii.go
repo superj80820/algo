@@ -1,4 +1,4 @@
-// tags: star3, graphs, topological-sort
+// tags: graphs, star3, topological-sort
 
 // time complexity: O(v+e)
 // space complexity: O(v+e)

@@ -1,4 +1,4 @@
-// tags: todo-tags
+// tags: greedy, star3
 
 // time complexity: O(n)
 // space complexity: O(1)

@@ -1,4 +1,4 @@
-// tags: star3, advanced-graphs, PR, YT
+// tags: advanced-graphs, star3, PR, YT
 
 import "container/heap"
 

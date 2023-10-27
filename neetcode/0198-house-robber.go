@@ -1,4 +1,4 @@
-// tags: star1, dp
+// tags: 1d-dp, star1
 
 // time complexity: O(n)
 // space complexity: O(1)

@@ -1,3 +1,5 @@
+// tags: bit-manipulation, PR
+
 import "math"
 
 // time complexity: O(n)

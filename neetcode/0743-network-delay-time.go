@@ -1,4 +1,4 @@
-// tags: star3, dijkstra's-algo, heap
+// tags: heap(priority-queue), star3, dijkstra's-algo
 
 import "container/heap"
 

@@ -1,4 +1,4 @@
-// tags: star3, bellman-ford-algo
+// tags: advanced-graphs, star3, bellman-ford-algo
 
 import "math"
 

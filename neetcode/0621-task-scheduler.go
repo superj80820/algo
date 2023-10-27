@@ -1,3 +1,5 @@
+// tags: heap(priority-queue), star3
+
 import "container/heap"
 
 type IntHeap []int

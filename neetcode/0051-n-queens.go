@@ -1,4 +1,4 @@
-// tags: star3, backtracking
+// tags: backtracking, star3
 
 // time complexity: O(N!)
 // space complexity: O(N)

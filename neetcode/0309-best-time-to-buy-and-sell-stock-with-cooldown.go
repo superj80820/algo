@@ -1,4 +1,4 @@
-// tags: star3, dp, dfs, todo-space-optimize
+// tags: 2d-dp, star3, dfs, todo-space-optimize
 
 // time complexity: O(n)
 // space complexity: O(n)

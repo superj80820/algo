@@ -1,4 +1,4 @@
-// tags: star3, dp, dfs
+// tags: 2d-dp, star3, dfs
 
 // time complexity: O(m*n)
 // space complexity: O(m*n)

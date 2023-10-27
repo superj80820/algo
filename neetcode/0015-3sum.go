@@ -1,4 +1,4 @@
-// tags: star3, sliding-window
+// tags: sliding-window, star3
 
 // time complexity: O(n)
 // space complexity: O(1)
