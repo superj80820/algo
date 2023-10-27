@@ -6,6 +6,7 @@
 ### arrays&hashing
 | Name | Star | Tags |
 | -------- | -------- | -------- |
+|[1. two-sum](https://leetcode.com/problems/two-sum/)|⭐⭐⭐||
 ### two-pointers
 | Name | Star | Tags |
 | -------- | -------- | -------- |
