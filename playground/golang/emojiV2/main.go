@@ -49,23 +49,23 @@ func (this *Trie) Search(words string) (bool, string) {
 }
 
 func main() {
-	t := Constructor()
+	trie := Constructor()
 
-	t.Insert("U+1F3F3::U+FE0F::U+200D::U+1F308", "🏳️‍🌈")
+	trie.Insert("🏳 🌈", "🏳️‍🌈")
 
 	// Exist case
-	words := "「林森北」酒精路跑！大家都喝醉～酒錢這次到底要誰出啦！？U+1F3F3::U+FE0F::U+200D::U+1F308哈哈"
+	words := "《中華一番！》每天不間斷 馬拉松直播🏳 🌈哈哈"
 	for i := 0; i < len(words); i++ {
-		exist, emoji := t.Search(words[i:])
+		exist, emoji := trie.Search(words[i:])
 		if exist {
 			fmt.Println("find ", emoji)
 		}
 	}
 
 	// does not exist case
-	words = "「林森北」酒精路跑！大家都喝醉～酒錢這次到底要誰出啦！？U+1F3F3::U+FE0F::U+200D::U+1F3xx哈哈"
+	words = "《中華一番！》每天不間斷 馬拉松直播🏳 哈哈"
 	for i := 0; i < len(words); i++ {
-		exist, emoji := t.Search(words[i:])
+		exist, emoji := trie.Search(words[i:])
 		if exist {
 			fmt.Println("find ", emoji)
 		}
