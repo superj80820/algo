@@ -10,6 +10,7 @@ import (
 type Trie struct {
 	children  map[uint64]*Trie
 	endOfWord bool
+	emoji     string
 }
 
 func Constructor() Trie {
@@ -19,7 +20,7 @@ func Constructor() Trie {
 	}
 }
 
-func (this *Trie) Insert(words []string) error {
+func (this *Trie) Insert(words []string, target string) error {
 	cur := this
 
 	unicodes, err := this.covertAllStringToInt(words)
@@ -36,26 +37,27 @@ func (this *Trie) Insert(words []string) error {
 	}
 
 	cur.endOfWord = true
+	cur.emoji = target
 
 	return nil
 }
 
-func (this *Trie) Search(words []string) (bool, error) {
+func (this *Trie) Search(words []string) (bool, string, error) {
 	cur := this
 
 	unicodes, err := this.covertAllStringToInt(words)
 	if err != nil {
-		return false, errors.Wrap(err, "error unicode format")
+		return false, "", errors.Wrap(err, "error unicode format")
 	}
 
 	for _, unicode := range unicodes {
 		if cur.children[unicode] == nil {
-			return false, nil
+			return false, "", nil
 		}
 		cur = cur.children[unicode]
 	}
 
-	return cur.endOfWord, nil
+	return cur.endOfWord, cur.emoji, nil
 }
 
 func (this *Trie) StartsWith(words []string) (bool, error) {
@@ -103,7 +105,7 @@ func covertStringToInt(str string) (uint64, error) {
 func main() {
 	t := Constructor()
 
-	t.Insert([]string{"U+1F3F3", "U+FE0F", "U+200D", "U+1F308"})
+	t.Insert([]string{"U+1F3F3", "U+FE0F", "U+200D", "U+1F308"}, "🏳️‍🌈")
 
 	fmt.Println(t.Search([]string{"U+1F3F3", "U+FE0F", "U+200D", "U+1F308"}))
 	fmt.Println(t.Search([]string{"U+1F3F3", "U+FE0F", "U+200D1", "U+1F308"}))
