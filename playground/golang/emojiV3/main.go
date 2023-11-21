@@ -1,16 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"container/list"
+	"fmt"
+	"strings"
+)
 
 type Trie struct {
-	children  map[rune]*Trie
+	children  map[string]*Trie
 	endOfWord bool
 	emoji     string
 }
 
 func Constructor() Trie {
 	return Trie{
-		children:  make(map[rune]*Trie),
+		children:  make(map[string]*Trie),
 		endOfWord: false,
 	}
 }
@@ -19,11 +23,11 @@ func (this *Trie) Insert(words string, target string) {
 	cur := this
 
 	for _, word := range words {
-		if cur.children[word] == nil {
+		if cur.children[string(word)] == nil {
 			childTrie := Constructor()
-			cur.children[word] = &childTrie
+			cur.children[string(word)] = &childTrie
 		}
-		cur = cur.children[word]
+		cur = cur.children[string(word)]
 	}
 
 	cur.endOfWord = true
@@ -42,40 +46,63 @@ func (this *Trie) CreateFinder() TrieFinder {
 	}
 }
 
-func (this *TrieFinder) Search(word rune) (bool, string) {
+func (this *TrieFinder) Search(word string) (exist bool, isEnd bool, emoji string) {
 	if this.curTrie.children[word] == nil {
 		this.curTrie = this.rootTrie
-		return false, ""
+		return false, false, ""
 	}
 	this.curTrie = this.curTrie.children[word]
 	if this.curTrie.endOfWord {
-		return true, this.curTrie.emoji
+		return true, true, this.curTrie.emoji
 	}
-	return false, ""
+	return true, false, ""
+}
+
+func Convert(words string, trie *Trie) string {
+	formatStringBuilder := list.New()
+	finder := trie.CreateFinder()
+
+	runeWords := []rune(words)
+	for i := 0; i < len(runeWords); i++ {
+		exist, _, _ := finder.Search(string(runeWords[i]))
+		if !exist || i == len(runeWords)-1 {
+			formatStringBuilder.PushBack(string(runeWords[i]))
+		} else {
+			emojiBuilder := list.New()
+			emojiBuilder.PushBack(string(runeWords[i]))
+			for i++; i < len(runeWords); i++ {
+				exist, isEnd, emoji := finder.Search(string(runeWords[i]))
+				if !exist {
+					formatStringBuilder.PushBackList(emojiBuilder)
+					break
+				} else if isEnd {
+					formatStringBuilder.PushBack(emoji)
+					break
+				}
+				emojiBuilder.PushBack(string(runeWords[i]))
+			}
+		}
+	}
+
+	var strBuilder strings.Builder
+	for e := formatStringBuilder.Front(); e != nil; e = e.Next() {
+		strBuilder.WriteString(e.Value.(string))
+	}
+
+	return strBuilder.String()
 }
 
 func main() {
-	t := Constructor()
+	trie := Constructor()
 
-	t.Insert("U+1F3F3::U+FE0F::U+200D::U+1F308", "🏳️‍🌈")
+	trie.Insert("🏳 🌈", "🏳️‍🌈")
+	trie.Insert("👨‍👩👧", "👨‍👩‍👧")
 
 	// exist case
-	words := "「林森北」酒精路跑！大家都喝醉～酒錢這次到底要誰出啦！？U+1F3F3::U+FE0F::U+200D::U+1F308哈哈"
-	finder := t.CreateFinder()
-	for _, word := range words {
-		exist, emoji := finder.Search(word)
-		if exist {
-			fmt.Println("exist case found: ", emoji)
-		}
-	}
+	fmt.Println(Convert("《中華一番！》每天不間斷👨‍👩👧 馬拉松直播🏳 🌈哈哈", &trie))
+	// print: 《中華一番！》每天不間斷👨‍👩‍👧 馬拉松直播🏳️‍🌈哈哈
 
 	// does not exist case
-	words = "「林森北」酒精路跑！大家都喝醉～酒錢這次到底要誰出啦！？U+1F3F3::U+FE0F::U+200D::U+1F3xx哈哈"
-	finder = t.CreateFinder()
-	for _, word := range words {
-		exist, emoji := finder.Search(word)
-		if exist {
-			fmt.Println("does not exist case found: ", emoji)
-		}
-	}
+	fmt.Println(Convert("《中華一番！》每天不間斷 馬拉松直播👧 哈哈🏳", &trie))
+	// print:  中華一番！》每天不間斷 馬拉松直播👧 哈哈🏳
 }
