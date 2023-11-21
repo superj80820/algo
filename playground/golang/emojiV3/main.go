@@ -59,33 +59,33 @@ func (this *TrieFinder) Search(word string) (exist bool, isEnd bool, emoji strin
 }
 
 func Convert(words string, trie *Trie) string {
-	formatStringBuilder := list.New()
+	formatStringList := list.New()
 	finder := trie.CreateFinder()
 
 	runeWords := []rune(words)
 	for i := 0; i < len(runeWords); i++ {
 		exist, _, _ := finder.Search(string(runeWords[i]))
 		if !exist || i == len(runeWords)-1 {
-			formatStringBuilder.PushBack(string(runeWords[i]))
+			formatStringList.PushBack(string(runeWords[i]))
 		} else {
-			emojiBuilder := list.New()
-			emojiBuilder.PushBack(string(runeWords[i]))
+			emojiList := list.New()
+			emojiList.PushBack(string(runeWords[i]))
 			for i++; i < len(runeWords); i++ {
 				exist, isEnd, emoji := finder.Search(string(runeWords[i]))
 				if !exist {
-					formatStringBuilder.PushBackList(emojiBuilder)
+					formatStringList.PushBackList(emojiList)
 					break
 				} else if isEnd {
-					formatStringBuilder.PushBack(emoji)
+					formatStringList.PushBack(emoji)
 					break
 				}
-				emojiBuilder.PushBack(string(runeWords[i]))
+				emojiList.PushBack(string(runeWords[i]))
 			}
 		}
 	}
 
 	var strBuilder strings.Builder
-	for e := formatStringBuilder.Front(); e != nil; e = e.Next() {
+	for e := formatStringList.Front(); e != nil; e = e.Next() {
 		strBuilder.WriteString(e.Value.(string))
 	}
 
