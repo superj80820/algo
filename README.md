@@ -7,6 +7,7 @@
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[1. two-sum](https://leetcode.com/problems/two-sum/)|⭐⭐⭐||
+|[36. valid-sudoku](https://leetcode.com/problems/valid-sudoku/)|||
 |[49. group-anagrams](https://leetcode.com/problems/group-anagrams/)|||
 |[217. contains-duplicate](https://leetcode.com/problems/contains-duplicate/)|||
 |[242. valid-anagram](https://leetcode.com/problems/valid-anagram/)|||
@@ -17,7 +18,7 @@
 ### sliding-window
 | Name | Star | Tags |
 | -------- | -------- | -------- |
-|[3. longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|||
+|[3. longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|⭐⭐⭐||
 |[15. 3sum](https://leetcode.com/problems/3sum/)|⭐⭐⭐||
 |[42. trapping-rain-water](https://leetcode.com/problems/trapping-rain-water/)|⭐⭐⭐||
 |[76. minimum-window-substring](https://leetcode.com/problems/minimum-window-substring/)|⭐||
@@ -30,9 +31,12 @@
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[4. median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)|⭐⭐⭐||
+|[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|⭐⭐||
 ### linked-list
 | Name | Star | Tags |
 | -------- | -------- | -------- |
+|[2. add-two-numbers](https://leetcode.com/problems/add-two-numbers/)|||
+|[19. remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|⭐||
 |[21. merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists/)|⭐⭐⭐||
 |[23. merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists/)|⭐⭐⭐||
 |[25. reverse-nodes-in-k-group](https://leetcode.com/problems/reverse-nodes-in-k-group/)|⭐⭐||
@@ -59,6 +63,8 @@
 ### backtracking
 | Name | Star | Tags |
 | -------- | -------- | -------- |
+|[17. letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|⭐||
+|[39. combination-sum](https://leetcode.com/problems/combination-sum/)|⭐⭐||
 |[51. n-queens](https://leetcode.com/problems/n-queens/)|⭐⭐⭐||
 ### graphs
 | Name | Star | Tags |
@@ -81,6 +87,7 @@
 ### 1d-dp
 | Name | Star | Tags |
 | -------- | -------- | -------- |
+|[5. longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring/)|||
 |[91. decode-ways](https://leetcode.com/problems/decode-ways/)|⭐⭐⭐||
 |[139. word-break](https://leetcode.com/problems/word-break/)|⭐⭐||
 |[198. house-robber](https://leetcode.com/problems/house-robber/)|⭐||
@@ -102,6 +109,7 @@
 ### greedy
 | Name | Star | Tags |
 | -------- | -------- | -------- |
+|[22. generate-parentheses](https://leetcode.com/problems/generate-parentheses/)|⭐⭐||
 |[45. jump-game-ii](https://leetcode.com/problems/jump-game-ii/)||dp(todo)|
 |[53. maximum-subarray](https://leetcode.com/problems/maximum-subarray/)|⭐⭐||
 |[55. jump-game](https://leetcode.com/problems/jump-game/)|⭐⭐⭐||
@@ -135,15 +143,7 @@
 ### todo
 | Name | Star | Tags |
 | -------- | -------- | -------- |
-|[2. add-two-numbers](https://leetcode.com/problems/add-two-numbers/)|||
-|[5. longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring/)|||
 |[11. container-with-most-water](https://leetcode.com/problems/container-with-most-water/)|||
-|[17. letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|||
-|[19. remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|||
-|[22. generate-parentheses](https://leetcode.com/problems/generate-parentheses/)|||
-|[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|||
-|[36. valid-sudoku](https://leetcode.com/problems/valid-sudoku/)|||
-|[39. combination-sum](https://leetcode.com/problems/combination-sum/)|||
 |[40. combination-sum-ii](https://leetcode.com/problems/combination-sum-ii/)|||
 |[46. permutations](https://leetcode.com/problems/permutations/)|||
 |[61. rotate-list](https://leetcode.com/problems/rotate-list/)|||
