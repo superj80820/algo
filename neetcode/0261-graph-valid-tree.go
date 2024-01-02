@@ -1,4 +1,4 @@
-// tags: graphs, union-find, dfs, 
+// tags: graphs, union-find, dfs, leet-code-premium, medium
 
 /**
  * @param n: An integer

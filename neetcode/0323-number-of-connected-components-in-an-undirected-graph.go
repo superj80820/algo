@@ -1,4 +1,4 @@
-// tags: graphs, union-find, 
+// tags: graphs, union-find, leet-code-premium, medium
 
 /**
  * @param n: the number of vertices

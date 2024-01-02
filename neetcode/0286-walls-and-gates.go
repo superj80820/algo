@@ -1,4 +1,4 @@
-// tags: graphs, bfs, 
+// tags: graphs, bfs, leet-code-premium, medium
 
 /**
  * @param rooms: m x n 2D grid
