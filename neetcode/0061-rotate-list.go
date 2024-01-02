@@ -5,6 +5,7 @@
  *     Next *ListNode
  * }
  */
+
 // time complexity: O(n)
 // space complexity: O(1)
 func rotateRight(head *ListNode, k int) *ListNode {

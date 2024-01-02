@@ -1,3 +1,5 @@
+// tags: backtracking, star2
+
 // time complexity: O(n * n!)
 // space complexity: O(n!)
 func permute(nums []int) [][]int {

@@ -1,3 +1,5 @@
+// tags: math&geometry
+
 // time complexity: O(n)
 // space complexity: O(n)
 func plusOne(digits []int) []int {

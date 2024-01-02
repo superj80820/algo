@@ -1,3 +1,5 @@
+// tags: backtracking, star3
+
 import "sort"
 
 // time complexity: O(n*2^n)

@@ -1,3 +1,5 @@
+// tags: trees, star1
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -6,6 +8,7 @@
  *     Right *TreeNode
  * }
  */
+
 // time complexity: O(n)
 // time complexity: O(d)
 // `d` is tree depth

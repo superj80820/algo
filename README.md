@@ -15,7 +15,7 @@
 ### two-pointers
 | Name | Star | Tags |
 | -------- | -------- | -------- |
-|[11. container-with-most-water](https://leetcode.com/problems/container-with-most-water/)|||
+|[11. container-with-most-water](https://leetcode.com/problems/container-with-most-water/)|⭐⭐⭐||
 ### sliding-window
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -33,6 +33,7 @@
 | -------- | -------- | -------- |
 |[4. median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)|⭐⭐⭐||
 |[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|⭐⭐||
+|[74. search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix/)|⭐||
 ### linked-list
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -45,6 +46,8 @@
 ### trees
 | Name | Star | Tags |
 | -------- | -------- | -------- |
+|[98. validate-binary-search-tree](https://leetcode.com/problems/validate-binary-search-tree/)|⭐||
+|[102. binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|⭐||
 |[105. construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|⭐⭐||
 |[124. binary-tree-maximum-path-sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|⭐⭐⭐||
 |[297. serialize-and-deserialize-binary-tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|⭐||
@@ -65,8 +68,13 @@
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[17. letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|⭐||
-|[39. combination-sum](https://leetcode.com/problems/combination-sum/)|⭐⭐||
+|[39. combination-sum](https://leetcode.com/problems/combination-sum/)|⭐⭐⭐||
+|[40. combination-sum-ii](https://leetcode.com/problems/combination-sum-ii/)|⭐⭐⭐||
+|[46. permutations](https://leetcode.com/problems/permutations/)|⭐⭐||
 |[51. n-queens](https://leetcode.com/problems/n-queens/)|⭐⭐⭐||
+|[78. subsets](https://leetcode.com/problems/subsets/)|⭐⭐⭐||
+|[79. word-search](https://leetcode.com/problems/word-search/)|⭐⭐||
+|[90. subsets-ii](https://leetcode.com/problems/subsets-ii/)|⭐⭐⭐||
 ### graphs
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -135,6 +143,7 @@
 |[48. rotate-image](https://leetcode.com/problems/rotate-image/)|||
 |[50. powx-n](https://leetcode.com/problems/powx-n/)|||
 |[54. spiral-matrix](https://leetcode.com/problems/spiral-matrix/)|||
+|[66. plus-one](https://leetcode.com/problems/plus-one/)|||
 |[73. set-matrix-zeroes](https://leetcode.com/problems/set-matrix-zeroes/)|||
 |[213. detect-squares](https://leetcode.com/problems/detect-squares/)|||
 ### bit-manipulation
@@ -144,16 +153,7 @@
 ### todo
 | Name | Star | Tags |
 | -------- | -------- | -------- |
-|[40. combination-sum-ii](https://leetcode.com/problems/combination-sum-ii/)|||
-|[46. permutations](https://leetcode.com/problems/permutations/)|||
 |[61. rotate-list](https://leetcode.com/problems/rotate-list/)|||
-|[66. plus-one](https://leetcode.com/problems/plus-one/)|||
-|[74. search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix/)|||
-|[78. subsets](https://leetcode.com/problems/subsets/)|||
-|[79. word-search](https://leetcode.com/problems/word-search/)|||
-|[90. subsets-ii](https://leetcode.com/problems/subsets-ii/)|||
-|[98. validate-binary-search-tree](https://leetcode.com/problems/validate-binary-search-tree/)|||
-|[102. binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|||
 |[128. longest-consecutive-sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|||
 |[131. palindrome-partitioning](https://leetcode.com/problems/palindrome-partitioning/)|||
 |[133. clone-graph](https://leetcode.com/problems/clone-graph/)|||

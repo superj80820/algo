@@ -1,3 +1,5 @@
+// tags: binary-search, star1
+
 // time complexity: O(log(m * n))
 // space complexity: O(1)
 func searchMatrix(matrix [][]int, target int) bool {

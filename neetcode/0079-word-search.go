@@ -1,3 +1,5 @@
+// tags: backtracking, star2
+
 // time complexity: O(m*n*4^s)
 // space complexity: O(m*n)
 func exist(board [][]byte, word string) bool {
