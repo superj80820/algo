@@ -103,6 +103,7 @@ func main() {
 
 	fileInfosByTag := make(map[string][]*FileInfo)
 	for _, fileInfo := range fileInfos {
+		fmt.Println(fileInfo)
 		fileInfosByTag[fileInfo.MainTag] = append(fileInfosByTag[fileInfo.MainTag], fileInfo)
 	}
 
