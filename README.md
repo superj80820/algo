@@ -28,12 +28,16 @@
 |[42. trapping-rain-water](https://leetcode.com/problems/trapping-rain-water/)|⭐⭐⭐||
 |[76. minimum-window-substring](https://leetcode.com/problems/minimum-window-substring/)|⭐||
 |[239. sliding-window-maximum](https://leetcode.com/problems/sliding-window-maximum/)|⭐||
+|[424. longest-repeating-character-replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|||
+|[567. permutation-in-string](https://leetcode.com/problems/permutation-in-string/)|||
 ### stack
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[84. largest-rectangle-in-histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)|⭐⭐||
 |[150. evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|⭐||
 |[155. min-stack](https://leetcode.com/problems/min-stack/)|⭐||
+|[739. daily-temperatures](https://leetcode.com/problems/daily-temperatures/)|⭐||
+|[853. car-fleet](https://leetcode.com/problems/car-fleet/)|⭐||
 ### binary-search
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -41,6 +45,8 @@
 |[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|⭐⭐||
 |[74. search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix/)|⭐||
 |[153. find-minimum-in-rotated-sorted-array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|⭐||
+|[875. koko-eating-bananas](https://leetcode.com/problems/koko-eating-bananas/)|⭐||
+|[981. time-based-key-value-store](https://leetcode.com/problems/time-based-key-value-store/)|⭐⭐||
 ### linked-list
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -52,6 +58,7 @@
 |[138. copy-list-with-random-pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|⭐⭐⭐||
 |[143. reorder-list](https://leetcode.com/problems/reorder-list/)|⭐||
 |[206. reverse-linked-list](https://leetcode.com/problems/reverse-linked-list/)|⭐||
+|[287. find-the-duplicate-number](https://leetcode.com/problems/find-the-duplicate-number/)|⭐⭐⭐||
 ### trees
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -62,6 +69,9 @@
 |[199. binary-tree-right-side-view](https://leetcode.com/problems/binary-tree-right-side-view/)|⭐⭐||
 |[230. kth-smallest-element-in-a-bst](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|⭐⭐||
 |[297. serialize-and-deserialize-binary-tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|⭐||
+|[543. diameter-of-binary-tree](https://leetcode.com/problems/diameter-of-binary-tree/)|⭐||
+|[572. subtree-of-another-tree](https://leetcode.com/problems/subtree-of-another-tree/)|⭐||
+|[1448. count-good-nodes-in-binary-tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)|⭐⭐||
 ### tries
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -73,8 +83,12 @@
 | -------- | -------- | -------- |
 |[215. kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|⭐|PR|
 |[295. find-median-from-data-stream](https://leetcode.com/problems/find-median-from-data-stream/)|⭐⭐||
+|[355. design-twitter](https://leetcode.com/problems/design-twitter/)|⭐⭐⭐||
 |[621. task-scheduler](https://leetcode.com/problems/task-scheduler/)|⭐⭐⭐||
+|[703. kth-largest-element-in-a-stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)|⭐||
 |[743. network-delay-time](https://leetcode.com/problems/network-delay-time/)|⭐⭐⭐|dijkstra's-algo|
+|[973. k-closest-points-to-origin](https://leetcode.com/problems/k-closest-points-to-origin/)|⭐⭐||
+|[1046. last-stone-weight](https://leetcode.com/problems/last-stone-weight/)|⭐⭐||
 ### backtracking
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -97,6 +111,8 @@
 |[210. course-schedule-ii](https://leetcode.com/problems/course-schedule-ii/)|⭐⭐⭐|topological-sort|
 |[663. walls-and-gates](https://leetcode.com/problems/walls-and-gates/)||bfs|
 |[684. redundant-connection](https://leetcode.com/problems/redundant-connection/)||union-find|
+|[695. max-area-of-island](https://leetcode.com/problems/max-area-of-island/)|⭐||
+|[994. rotting-oranges](https://leetcode.com/problems/rotting-oranges/)|⭐⭐||
 |[3651. number-of-connected-components-in-an-undirected-graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)||union-find|
 ### advanced-graphs
 | Name | Star | Tags |
@@ -115,6 +131,7 @@
 |[198. house-robber](https://leetcode.com/problems/house-robber/)|⭐||
 |[213. house-robber-ii](https://leetcode.com/problems/house-robber-ii/)|⭐⭐⭐||
 |[322. coin-change](https://leetcode.com/problems/coin-change/)|⭐⭐⭐||
+|[416. partition-equal-subset-sum](https://leetcode.com/problems/partition-equal-subset-sum/)|⭐⭐||
 |[647. palindromic-substrings](https://leetcode.com/problems/palindromic-substrings/)|⭐||
 |[746. min-cost-climbing-stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)|⭐⭐||
 ### 2d-dp
@@ -169,27 +186,10 @@
 |[190. reverse-bits](https://leetcode.com/problems/reverse-bits/)|||
 |[191. number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/)|||
 |[268. missing-number](https://leetcode.com/problems/missing-number/)|||
+|[338. counting-bits](https://leetcode.com/problems/counting-bits/)|||
+|[371. sum-of-two-integers](https://leetcode.com/problems/sum-of-two-integers/)|||
 ### todo
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[61. rotate-list](https://leetcode.com/problems/rotate-list/)|||
-|[287. find-the-duplicate-number](https://leetcode.com/problems/find-the-duplicate-number/)|||
-|[338. counting-bits](https://leetcode.com/problems/counting-bits/)|||
-|[355. design-twitter](https://leetcode.com/problems/design-twitter/)|||
-|[371. sum-of-two-integers](https://leetcode.com/problems/sum-of-two-integers/)|||
-|[416. partition-equal-subset-sum](https://leetcode.com/problems/partition-equal-subset-sum/)|||
-|[424. longest-repeating-character-replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|||
-|[543. diameter-of-binary-tree](https://leetcode.com/problems/diameter-of-binary-tree/)|||
-|[567. permutation-in-string](https://leetcode.com/problems/permutation-in-string/)|||
-|[572. subtree-of-another-tree](https://leetcode.com/problems/subtree-of-another-tree/)|||
-|[695. max-area-of-island](https://leetcode.com/problems/max-area-of-island/)|||
-|[703. kth-largest-element-in-a-stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)|||
-|[739. daily-temperatures](https://leetcode.com/problems/daily-temperatures/)|||
-|[853. car-fleet](https://leetcode.com/problems/car-fleet/)|||
-|[875. koko-eating-bananas](https://leetcode.com/problems/koko-eating-bananas/)|||
-|[973. k-closest-points-to-origin](https://leetcode.com/problems/k-closest-points-to-origin/)|||
-|[981. time-based-key-value-store](https://leetcode.com/problems/time-based-key-value-store/)|||
-|[994. rotting-oranges](https://leetcode.com/problems/rotting-oranges/)|||
-|[1046. last-stone-weight](https://leetcode.com/problems/last-stone-weight/)|||
-|[1448. count-good-nodes-in-binary-tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)|||
 <!-- leetcode list end -->

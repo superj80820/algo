@@ -1,3 +1,5 @@
+// tags: binary-search, star1
+
 import "math"
 
 // time complexity: O(logn)

@@ -1,3 +1,5 @@
+// tags: stack, star1
+
 // time complexity: O(n * logn)
 // space complexity: O(n)
 func carFleet(target int, position []int, speed []int) int {

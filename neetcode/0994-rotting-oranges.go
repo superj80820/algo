@@ -1,3 +1,5 @@
+// tags: graphs, star2
+
 // time complexity: O(m*n)
 // space complexity: O(m*n)
 func orangesRotting(grid [][]int) int {

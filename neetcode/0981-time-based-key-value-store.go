@@ -1,3 +1,5 @@
+// tags: binary-search, star2
+
 type TimeMap struct {
 	dataset map[string][]*data
 }

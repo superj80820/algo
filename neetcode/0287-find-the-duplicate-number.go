@@ -1,3 +1,5 @@
+// tags: linked-list, star3
+
 // time complexity: O(n)
 // space complexity: O(1)
 func findDuplicate(nums []int) int {

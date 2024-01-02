@@ -1,3 +1,5 @@
+// tags: graphs, star1
+
 // time complexity: O(m * n)
 // space complexity: O(m * n)
 func maxAreaOfIsland(grid [][]int) int {

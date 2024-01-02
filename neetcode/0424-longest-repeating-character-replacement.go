@@ -1,3 +1,5 @@
+// tags: sliding-window
+
 // time complexity: O(n)
 // space complexity: O(n)
 func characterReplacement(s string, k int) int {

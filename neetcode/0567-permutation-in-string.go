@@ -1,3 +1,5 @@
+// tags: sliding-window
+
 // time complexity: O(n)
 // space complexity: O(n)
 func checkInclusion(s1 string, s2 string) bool {

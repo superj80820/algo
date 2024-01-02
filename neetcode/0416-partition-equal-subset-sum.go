@@ -1,3 +1,5 @@
+// tags: 1d-dp, star2
+
 func canPartition(nums []int) bool {
 	sumNums := sum(nums)
 	if sumNums%2 != 0 {

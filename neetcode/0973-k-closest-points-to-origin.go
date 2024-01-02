@@ -1,3 +1,5 @@
+// tags: heap(priority-queue), star2
+
 import "container/heap"
 
 type PointInfoHeap []*PointInfo
