@@ -1,4 +1,4 @@
-// tags: sliding-window, star3, hard
+// tags: two-pointers, star3, hard
 
 // time complexity: O(n)
 // space complexity: O(1)

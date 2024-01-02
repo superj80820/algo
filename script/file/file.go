@@ -173,7 +173,6 @@ func createFileInfo(topicOrder *topicOrder) func(fileName, tagsInfo string) (*Fi
 			}
 		}
 
-		fmt.Println(name, otherTags, len(otherTags), originOtherTags, tagsInfo)
 		return &FileInfo{
 			ID:               id,
 			Name:             name,

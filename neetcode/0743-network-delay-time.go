@@ -1,4 +1,4 @@
-// tags: heap(priority-queue), star3, dijkstra's-algo, medium
+// tags: advanced-graphs, star3, dijkstra's-algo, medium
 
 import "container/heap"
 

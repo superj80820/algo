@@ -1,4 +1,4 @@
-// tags: greedy, star2, medium
+// tags: stack, star2, todo(write), medium
 
 // time complexity: O(4^n/sqrt(n))
 // space complexity: O(4^n/sqrt(n))
