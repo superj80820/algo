@@ -1,3 +1,5 @@
+// tags: two-pointers
+
 // time complexity: O(n)
 // space complexity: O(1)
 func maxArea(height []int) int {
