@@ -1,0 +1,44 @@
+{
+	"create_time": "2024-01-03T04:03:26.549207+08:00",
+	"easy": [
+		{
+			"ID": 21,
+			"Name": "merge-two-sorted-lists",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		},
+		{
+			"ID": 104,
+			"Name": "maximum-depth-of-binary-tree",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		}
+	],
+	"medium": [
+		{
+			"ID": 55,
+			"Name": "jump-game",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		},
+		{
+			"ID": 322,
+			"Name": "coin-change",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		}
+	],
+	"hard": [
+		{
+			"ID": 115,
+			"Name": "distinct-subsequences",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		}
+	]
+}
