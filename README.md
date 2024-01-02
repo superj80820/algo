@@ -11,7 +11,9 @@
 |[49. group-anagrams](https://leetcode.com/problems/group-anagrams/)|||
 |[128. longest-consecutive-sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|⭐||
 |[217. contains-duplicate](https://leetcode.com/problems/contains-duplicate/)|||
+|[238. product-of-array-except-self](https://leetcode.com/problems/product-of-array-except-self/)|||
 |[242. valid-anagram](https://leetcode.com/problems/valid-anagram/)|||
+|[271. encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/)|||
 |[347. top-k-frequent-elements](https://leetcode.com/problems/top-k-frequent-elements/)|||
 ### two-pointers
 | Name | Star | Tags |
@@ -166,14 +168,11 @@
 |[136. single-number](https://leetcode.com/problems/single-number/)|||
 |[190. reverse-bits](https://leetcode.com/problems/reverse-bits/)|||
 |[191. number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/)|||
+|[268. missing-number](https://leetcode.com/problems/missing-number/)|||
 ### todo
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[61. rotate-list](https://leetcode.com/problems/rotate-list/)|||
-|[238. product-of-array-except-self](https://leetcode.com/problems/product-of-array-except-self/)|||
-|[268. missing-number](https://leetcode.com/problems/missing-number/)|||
-|[271. encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/)|||
-|[271. encode-and-decode-strings_test](https://leetcode.com/problems/encode-and-decode-strings_test/)|||
 |[287. find-the-duplicate-number](https://leetcode.com/problems/find-the-duplicate-number/)|||
 |[338. counting-bits](https://leetcode.com/problems/counting-bits/)|||
 |[355. design-twitter](https://leetcode.com/problems/design-twitter/)|||

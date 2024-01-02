@@ -1,3 +1,5 @@
+// tags: arrays&hashing
+
 // time complexity: O(n)
 // space complexity: O(n)
 func productExceptSelf(nums []int) []int {

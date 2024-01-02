@@ -1,3 +1,5 @@
+// tags: arrays&hashing
+
 package main
 
 import (

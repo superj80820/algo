@@ -75,9 +75,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fileInfos := make([]*FileInfo, len(files))
-	for idx, file := range files {
-		data, err := os.ReadFile("./neetcode/" + file.Name())
+	fileInfos := make([]*FileInfo, 0, len(files))
+	for _, file := range files {
+		fileName := file.Name()
+		if fileName[len(fileName)-8:] == "_test.go" {
+			continue
+		}
+		data, err := os.ReadFile("./neetcode/" + fileName)
 		if err != nil {
 			panic(err)
 		}
@@ -90,11 +94,11 @@ func main() {
 			}
 		}
 		firstLine := fileString[:firstLineEndIdx]
-		fileInfo, err := CreateFileInfo(file.Name(), firstLine)
+		fileInfo, err := CreateFileInfo(fileName, firstLine)
 		if err != nil {
 			panic(err)
 		}
-		fileInfos[idx] = fileInfo
+		fileInfos = append(fileInfos, fileInfo)
 	}
 
 	fileInfosByTag := make(map[string][]*FileInfo)
