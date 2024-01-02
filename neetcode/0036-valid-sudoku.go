@@ -1,3 +1,5 @@
+// tags: arrays&hashing
+
 // time complexity: O(n^2)
 // space complexity: O(n^2)
 func isValidSudoku(board [][]byte) bool {

@@ -1,3 +1,5 @@
+// tags: arrays&hashing
+
 // time complexity: O(k * n)
 // space complexity: O(n)
 func topKFrequent(nums []int, k int) []int {

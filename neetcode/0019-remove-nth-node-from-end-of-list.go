@@ -1,11 +1,13 @@
-// /**
-//   - Definition for singly-linked list.
-//   - type ListNode struct {
-//   - Val int
-//   - Next *ListNode
-//   - }
-//     */
-//
+// tags: linked-list, star1
+
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+
 // time complexity: O(n)
 // space complexity: O(1)
 func removeNthFromEnd(head *ListNode, n int) *ListNode {

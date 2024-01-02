@@ -1,3 +1,5 @@
+// tags: backtracking, star1
+
 var numToLetter = map[byte]string{
 	'2': "abc",
 	'3': "def",

@@ -1,3 +1,5 @@
+// tags: binary-search, star2
+
 // time complexity: O(logn)
 // space complexity: O(1)
 func search(nums []int, target int) int {

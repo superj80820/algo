@@ -7,6 +7,10 @@
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[1. two-sum](https://leetcode.com/problems/two-sum/)|⭐⭐⭐||
+|[49. group-anagrams](https://leetcode.com/problems/group-anagrams/)|||
+|[217. contains-duplicate](https://leetcode.com/problems/contains-duplicate/)|||
+|[242. valid-anagram](https://leetcode.com/problems/valid-anagram/)|||
+|[347. top-k-frequent-elements](https://leetcode.com/problems/top-k-frequent-elements/)|||
 ### two-pointers
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -142,7 +146,6 @@
 |[39. combination-sum](https://leetcode.com/problems/combination-sum/)|||
 |[40. combination-sum-ii](https://leetcode.com/problems/combination-sum-ii/)|||
 |[46. permutations](https://leetcode.com/problems/permutations/)|||
-|[49. group-anagrams](https://leetcode.com/problems/group-anagrams/)|||
 |[61. rotate-list](https://leetcode.com/problems/rotate-list/)|||
 |[66. plus-one](https://leetcode.com/problems/plus-one/)|||
 |[74. search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix/)|||
@@ -173,7 +176,6 @@
 |[271. encode-and-decode-strings_test](https://leetcode.com/problems/encode-and-decode-strings_test/)|||
 |[287. find-the-duplicate-number](https://leetcode.com/problems/find-the-duplicate-number/)|||
 |[338. counting-bits](https://leetcode.com/problems/counting-bits/)|||
-|[347. top-k-frequent-elements](https://leetcode.com/problems/top-k-frequent-elements/)|||
 |[355. design-twitter](https://leetcode.com/problems/design-twitter/)|||
 |[371. sum-of-two-integers](https://leetcode.com/problems/sum-of-two-integers/)|||
 |[416. partition-equal-subset-sum](https://leetcode.com/problems/partition-equal-subset-sum/)|||

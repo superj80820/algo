@@ -1,3 +1,5 @@
+// tags: 1d-dp
+
 // time complexity: O(n^2)
 // space complexity: O(1)
 func longestPalindrome(s string) string {

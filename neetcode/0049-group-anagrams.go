@@ -1,3 +1,5 @@
+// tags: arrays&hashing
+
 // time complexity: O(m * n)
 // space complexity: O(m * n)
 // m is `strs` length, n is longest string in `strs`

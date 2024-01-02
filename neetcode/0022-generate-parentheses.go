@@ -1,3 +1,5 @@
+// tags: greedy, star2
+
 // time complexity: O(4^n/sqrt(n))
 // space complexity: O(4^n/sqrt(n))
 // some people say 'time complexity: O(2^n)' and 'space complexity: O(n)'. It's not correct answer. (ref: https://leetcode.com/problems/generate-parentheses/solutions/10100/easy-to-understand-java-backtracking-solution/comments/184522)

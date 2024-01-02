@@ -1,11 +1,13 @@
-// /**
-//   - Definition for singly-linked list.
-//   - type ListNode struct {
-//   - Val int
-//   - Next *ListNode
-//   - }
-//     */
-//
+// tags: linked-list
+
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+
 // time complexity: O(n)
 // space complexity: O(1)
 // `n` is max length of list node
