@@ -4,14 +4,14 @@
 		{
 			"ID": 21,
 			"Name": "merge-two-sorted-lists",
-			"Done": false,
+			"Done": true,
 			"CurrentScore": 3,
-			"Unfamiliar": 0
+			"Unfamiliar": 1
 		},
 		{
 			"ID": 104,
 			"Name": "maximum-depth-of-binary-tree",
-			"Done": false,
+			"Done": true,
 			"CurrentScore": 3,
 			"Unfamiliar": 0
 		}
