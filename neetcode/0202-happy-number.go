@@ -1,3 +1,5 @@
+// tags: math&geometry, star2
+
 package main
 
 import (

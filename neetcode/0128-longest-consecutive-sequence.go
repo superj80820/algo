@@ -1,3 +1,5 @@
+// tags: arrays&hashing, star1
+
 // time complexity: O(n)
 // space complexity: O(n)
 func longestConsecutive(nums []int) int {

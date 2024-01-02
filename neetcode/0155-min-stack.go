@@ -1,3 +1,5 @@
+// tags: stack, star1
+
 type MinStack struct {
 	top *StackNode
 }

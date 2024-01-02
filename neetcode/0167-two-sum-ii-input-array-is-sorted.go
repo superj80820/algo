@@ -1,3 +1,5 @@
+// tags: two-pointers, star3
+
 // time complexity: O(n)
 // space complexity: O(1)
 func twoSum(numbers []int, target int) []int {

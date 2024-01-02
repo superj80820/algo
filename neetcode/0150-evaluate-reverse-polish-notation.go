@@ -1,3 +1,5 @@
+// tags: stack, star1
+
 import "strconv"
 
 // time complexity: O(n)

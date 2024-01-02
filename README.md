@@ -9,6 +9,7 @@
 |[1. two-sum](https://leetcode.com/problems/two-sum/)|⭐⭐⭐||
 |[36. valid-sudoku](https://leetcode.com/problems/valid-sudoku/)|||
 |[49. group-anagrams](https://leetcode.com/problems/group-anagrams/)|||
+|[128. longest-consecutive-sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|⭐||
 |[217. contains-duplicate](https://leetcode.com/problems/contains-duplicate/)|||
 |[242. valid-anagram](https://leetcode.com/problems/valid-anagram/)|||
 |[347. top-k-frequent-elements](https://leetcode.com/problems/top-k-frequent-elements/)|||
@@ -16,6 +17,7 @@
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[11. container-with-most-water](https://leetcode.com/problems/container-with-most-water/)|⭐⭐⭐||
+|[167. two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|⭐⭐⭐||
 ### sliding-window
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -28,12 +30,15 @@
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[84. largest-rectangle-in-histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)|⭐⭐||
+|[150. evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|⭐||
+|[155. min-stack](https://leetcode.com/problems/min-stack/)|⭐||
 ### binary-search
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[4. median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)|⭐⭐⭐||
 |[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|⭐⭐||
 |[74. search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix/)|⭐||
+|[153. find-minimum-in-rotated-sorted-array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|⭐||
 ### linked-list
 | Name | Star | Tags |
 | -------- | -------- | -------- |
@@ -42,6 +47,8 @@
 |[21. merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists/)|⭐⭐⭐||
 |[23. merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists/)|⭐⭐⭐||
 |[25. reverse-nodes-in-k-group](https://leetcode.com/problems/reverse-nodes-in-k-group/)|⭐⭐||
+|[138. copy-list-with-random-pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|⭐⭐⭐||
+|[143. reorder-list](https://leetcode.com/problems/reorder-list/)|⭐||
 |[206. reverse-linked-list](https://leetcode.com/problems/reverse-linked-list/)|⭐||
 ### trees
 | Name | Star | Tags |
@@ -50,6 +57,8 @@
 |[102. binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|⭐||
 |[105. construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|⭐⭐||
 |[124. binary-tree-maximum-path-sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|⭐⭐⭐||
+|[199. binary-tree-right-side-view](https://leetcode.com/problems/binary-tree-right-side-view/)|⭐⭐||
+|[230. kth-smallest-element-in-a-bst](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|⭐⭐||
 |[297. serialize-and-deserialize-binary-tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|⭐||
 ### tries
 | Name | Star | Tags |
@@ -75,10 +84,12 @@
 |[78. subsets](https://leetcode.com/problems/subsets/)|⭐⭐⭐||
 |[79. word-search](https://leetcode.com/problems/word-search/)|⭐⭐||
 |[90. subsets-ii](https://leetcode.com/problems/subsets-ii/)|⭐⭐⭐||
+|[131. palindrome-partitioning](https://leetcode.com/problems/palindrome-partitioning/)|⭐||
 ### graphs
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[127. word-ladder](https://leetcode.com/problems/word-ladder/)|⭐⭐||
+|[133. clone-graph](https://leetcode.com/problems/clone-graph/)|⭐||
 |[178. graph-vaild-tree](https://leetcode.com/problems/graph-vaild-tree/)||union-find, dfs|
 |[207. course-schedule](https://leetcode.com/problems/course-schedule/)|⭐⭐||
 |[210. course-schedule-ii](https://leetcode.com/problems/course-schedule-ii/)|⭐⭐⭐|topological-sort|
@@ -100,6 +111,7 @@
 |[91. decode-ways](https://leetcode.com/problems/decode-ways/)|⭐⭐⭐||
 |[139. word-break](https://leetcode.com/problems/word-break/)|⭐⭐||
 |[198. house-robber](https://leetcode.com/problems/house-robber/)|⭐||
+|[213. house-robber-ii](https://leetcode.com/problems/house-robber-ii/)|⭐⭐⭐||
 |[322. coin-change](https://leetcode.com/problems/coin-change/)|⭐⭐⭐||
 |[647. palindromic-substrings](https://leetcode.com/problems/palindromic-substrings/)|⭐||
 |[746. min-cost-climbing-stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)|⭐⭐||
@@ -145,31 +157,19 @@
 |[54. spiral-matrix](https://leetcode.com/problems/spiral-matrix/)|||
 |[66. plus-one](https://leetcode.com/problems/plus-one/)|||
 |[73. set-matrix-zeroes](https://leetcode.com/problems/set-matrix-zeroes/)|||
+|[202. happy-number](https://leetcode.com/problems/happy-number/)|⭐⭐||
 |[213. detect-squares](https://leetcode.com/problems/detect-squares/)|||
 ### bit-manipulation
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[7. reverse-integer](https://leetcode.com/problems/reverse-integer/)||PR|
+|[136. single-number](https://leetcode.com/problems/single-number/)|||
+|[190. reverse-bits](https://leetcode.com/problems/reverse-bits/)|||
+|[191. number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/)|||
 ### todo
 | Name | Star | Tags |
 | -------- | -------- | -------- |
 |[61. rotate-list](https://leetcode.com/problems/rotate-list/)|||
-|[128. longest-consecutive-sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|||
-|[131. palindrome-partitioning](https://leetcode.com/problems/palindrome-partitioning/)|||
-|[133. clone-graph](https://leetcode.com/problems/clone-graph/)|||
-|[136. single-number](https://leetcode.com/problems/single-number/)|||
-|[138. copy-list-with-random-pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|||
-|[143. reorder-list](https://leetcode.com/problems/reorder-list/)|||
-|[150. evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|||
-|[153. find-minimum-in-rotated-sorted-array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|||
-|[155. min-stack](https://leetcode.com/problems/min-stack/)|||
-|[167. two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|||
-|[190. reverse-bits](https://leetcode.com/problems/reverse-bits/)|||
-|[191. number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/)|||
-|[199. binary-tree-right-side-view](https://leetcode.com/problems/binary-tree-right-side-view/)|||
-|[202. happy-number](https://leetcode.com/problems/happy-number/)|||
-|[213. house-robber-ii](https://leetcode.com/problems/house-robber-ii/)|||
-|[230. kth-smallest-element-in-a-bst](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|||
 |[238. product-of-array-except-self](https://leetcode.com/problems/product-of-array-except-self/)|||
 |[268. missing-number](https://leetcode.com/problems/missing-number/)|||
 |[271. encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/)|||

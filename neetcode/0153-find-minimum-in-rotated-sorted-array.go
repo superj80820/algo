@@ -1,3 +1,5 @@
+// tags: binary-search, star1
+
 // time complexity: O(logn)
 // space complexity: O(1)
 func findMin(nums []int) int {

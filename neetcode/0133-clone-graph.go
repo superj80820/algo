@@ -1,3 +1,5 @@
+// tags: graphs, star1
+
 /**
  * Definition for a Node.
  * type Node struct {
@@ -5,6 +7,7 @@
  *     Neighbors []*Node
  * }
  */
+
 // time complexity: O(e + v)
 // space complexity: O(v)
 func cloneGraph(node *Node) *Node {

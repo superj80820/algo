@@ -1,3 +1,5 @@
+// tags: backtracking, star1
+
 // time complexity: O(n^2*2^n)
 // space complexity: O(n)
 func partition(s string) [][]string {

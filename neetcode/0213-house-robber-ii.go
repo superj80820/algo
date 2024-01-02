@@ -1,3 +1,5 @@
+// tags: 1d-dp, star3
+
 // time complexity: O(n)
 // space complexity: O(1)
 func rob(nums []int) int {

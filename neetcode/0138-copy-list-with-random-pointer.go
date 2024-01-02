@@ -1,3 +1,5 @@
+// tags: linked-list, star3
+
 /**
  * Definition for a Node.
  * type Node struct {
@@ -6,6 +8,7 @@
  *     Random *Node
  * }
  */
+
 // time complexity: O(n)
 // space complexity: O(n)
 func copyRandomList(head *Node) *Node {
