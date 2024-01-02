@@ -72,7 +72,7 @@
 |[98. validate-binary-search-tree](https://leetcode.com/problems/validate-binary-search-tree/)|⭐|medium||
 |[100. same-tree](https://leetcode.com/problems/same-tree/)|⭐|easy|todo(write)|
 |[102. binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|⭐|medium||
-|[104. maximum-depth-of-binary-tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|⭐⭐⭐|easy|todo(write)|
+|[104. maximum-depth-of-binary-tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|⭐⭐⭐|easy||
 |[105. construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|⭐⭐|medium||
 |[110. balanced-binary-tree](https://leetcode.com/problems/balanced-binary-tree/)|⭐⭐|easy|todo(write)|
 |[124. binary-tree-maximum-path-sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|⭐⭐⭐|hard||

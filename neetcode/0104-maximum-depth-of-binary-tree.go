@@ -1,4 +1,4 @@
-// tags: trees, star3, todo(write), easy
+// tags: trees, star3, easy
 
 /**
  * Definition for a binary tree node.
