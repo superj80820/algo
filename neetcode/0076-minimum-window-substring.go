@@ -1,4 +1,4 @@
-// tags: sliding-window, star1
+// tags: sliding-window, star1, hard
 
 import "math"
 

@@ -1,4 +1,4 @@
-// tags: graphs, star2
+// tags: graphs, star2, hard
 
 // time complexity: O(m^2*n)
 // space complexity: O(m*n)

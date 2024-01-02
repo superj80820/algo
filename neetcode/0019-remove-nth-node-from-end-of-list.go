@@ -1,4 +1,4 @@
-// tags: linked-list, star1
+// tags: linked-list, star1, medium
 
 /**
  * Definition for singly-linked list.

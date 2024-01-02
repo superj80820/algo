@@ -1,4 +1,4 @@
-// tags: trees, star3
+// tags: trees, star3, hard
 
 /**
  * Definition for a binary tree node.

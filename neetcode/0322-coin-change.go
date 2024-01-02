@@ -1,4 +1,4 @@
-// tags: 1d-dp, star3
+// tags: 1d-dp, star3, medium
 
 // time complexity: O(n*c)
 // space complexity: O(n)

@@ -1,4 +1,4 @@
-// tags: binary-search, star2
+// tags: binary-search, star2, medium
 
 type TimeMap struct {
 	dataset map[string][]*data

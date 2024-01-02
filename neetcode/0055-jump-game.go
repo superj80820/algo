@@ -1,4 +1,4 @@
-// tags: greedy, star3
+// tags: greedy, star3, medium
 
 // time complexity: O(n)
 // space complexity: O(1)

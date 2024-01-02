@@ -1,4 +1,4 @@
-// tags: intervals
+// tags: intervals, medium
 
 import "sort"
 

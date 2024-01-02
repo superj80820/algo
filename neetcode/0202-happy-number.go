@@ -1,4 +1,4 @@
-// tags: math&geometry, star2
+// tags: math&geometry, star2, easy
 
 package main
 

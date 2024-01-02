@@ -1,4 +1,4 @@
-// tags: math&geometry
+// tags: math&geometry, easy
 
 // time complexity: O(n)
 // space complexity: O(n)

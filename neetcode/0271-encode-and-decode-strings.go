@@ -1,4 +1,4 @@
-// tags: arrays&hashing
+// tags: arrays&hashing, medium
 
 package main
 

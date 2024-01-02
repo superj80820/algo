@@ -1,4 +1,4 @@
-// tags: greedy
+// tags: greedy, medium
 
 func mergeTriplets(triplets [][]int, target []int) bool {
 	check := make(map[int]bool)

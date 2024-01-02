@@ -1,4 +1,4 @@
-// tags: backtracking, star3
+// tags: backtracking, star3, medium
 
 import "sort"
 

@@ -1,4 +1,4 @@
-// tags: binary-search, star1
+// tags: binary-search, star1, medium
 
 import "math"
 

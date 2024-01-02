@@ -1,4 +1,4 @@
-// tags: graphs, star1
+// tags: graphs, star1, medium
 
 // time complexity: O(m * n)
 // space complexity: O(m * n)

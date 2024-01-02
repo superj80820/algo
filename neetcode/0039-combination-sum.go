@@ -1,4 +1,4 @@
-// tags: backtracking, star3
+// tags: backtracking, star3, medium
 
 // time complexity: O(2^m)
 // space complexity: O(m)

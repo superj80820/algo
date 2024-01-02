@@ -1,4 +1,4 @@
-// tags: stack, star1
+// tags: stack, star1, medium
 
 // time complexity: O(n * logn)
 // space complexity: O(n)

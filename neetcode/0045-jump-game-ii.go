@@ -1,4 +1,4 @@
-// tags: greedy, dp(todo)
+// tags: greedy, dp(todo), medium
 
 func jump(nums []int) int {
 	var l, r, count int

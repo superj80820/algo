@@ -1,4 +1,4 @@
-// tags: heap(priority-queue), star1, PR
+// tags: heap(priority-queue), star1, PR, medium
 
 import "container/heap"
 

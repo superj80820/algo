@@ -1,4 +1,4 @@
-// tags: arrays&hashing, star1
+// tags: arrays&hashing, star1, medium
 
 // time complexity: O(n)
 // space complexity: O(n)

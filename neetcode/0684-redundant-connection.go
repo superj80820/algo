@@ -1,4 +1,4 @@
-// tags: graphs, union-find
+// tags: graphs, union-find, medium
 
 // time complexity: O(n*a(n)) ~= O(n)
 // space complexity: O(n)

@@ -1,4 +1,4 @@
-// tags: greedy
+// tags: greedy, medium
 
 import "container/heap"
 

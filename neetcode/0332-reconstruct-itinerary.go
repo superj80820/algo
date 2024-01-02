@@ -1,4 +1,4 @@
-// tags: advanced-graphs, star3, PR
+// tags: advanced-graphs, star3, PR, hard
 
 import "sort"
 

@@ -1,4 +1,4 @@
-// tags: 1d-dp, star2
+// tags: 1d-dp, star2, medium
 
 func canPartition(nums []int) bool {
 	sumNums := sum(nums)

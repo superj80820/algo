@@ -1,4 +1,4 @@
-// tags: graphs, star1
+// tags: graphs, star1, medium
 
 /**
  * Definition for a Node.

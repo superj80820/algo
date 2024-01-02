@@ -1,4 +1,4 @@
-// tags: tries
+// tags: tries, medium
 
 type Trie struct {
 	Child [26]*Trie

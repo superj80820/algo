@@ -1,4 +1,4 @@
-// tags: greedy, star2
+// tags: greedy, star2, medium
 
 // func canCompleteCircuit(gas []int, cost []int) int {
 //     diff := make([]int, len(gas))

@@ -1,4 +1,4 @@
-// tags: stack, star1
+// tags: stack, star1, medium
 
 import "strconv"
 

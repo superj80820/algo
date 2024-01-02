@@ -1,4 +1,4 @@
-// tags: arrays&hashing
+// tags: arrays&hashing, easy
 
 // time complexity: O(n)
 // space complexity: O(n)

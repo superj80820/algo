@@ -1,4 +1,4 @@
-// tags: two-pointers, star3
+// tags: two-pointers, star3, medium
 
 // time complexity: O(n)
 // space complexity: O(1)

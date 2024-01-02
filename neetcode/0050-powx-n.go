@@ -1,4 +1,4 @@
-// tags: math&geometry
+// tags: math&geometry, medium
 
 // time complexity: O(logn)
 // space complexity: O(logn)

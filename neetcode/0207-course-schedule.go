@@ -1,4 +1,4 @@
-// tags: graphs, star2
+// tags: graphs, star2, medium
 
 // time complexity: O(v+e)
 // space complexity: O(v+e)

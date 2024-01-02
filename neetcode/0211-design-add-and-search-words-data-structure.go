@@ -1,4 +1,4 @@
-// tags: tries
+// tags: tries, medium
 
 type WordDictionary struct {
 	Child [26]*WordDictionary

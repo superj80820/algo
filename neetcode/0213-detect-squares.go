@@ -1,4 +1,4 @@
-// tags: math&geometry
+// tags: math&geometry, medium
 
 type DetectSquares struct {
 	pointCount map[[2]int]int

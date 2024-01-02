@@ -1,4 +1,4 @@
-// tags: 2d-dp, star3, lcs
+// tags: 2d-dp, star3, lcs, hard
 
 // time complexity: O(m*n)
 // space complexity: O(m*n)

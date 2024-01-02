@@ -16,7 +16,19 @@ type FileInfo struct {
 	OtherTags        []string
 	HasTags          bool
 	Star             int
+	Difficulty       string
 	IsFreeInLeetcode bool
+}
+
+const (
+	mdLeetcodeListStart = "<!-- leetcode list start -->"
+	mdLeetCodeListEnd   = "<!-- leetcode list end -->"
+)
+
+var difficultyMap = map[string]bool{
+	"easy":   true,
+	"medium": true,
+	"hard":   true,
 }
 
 func (f FileInfo) StarToEmoji() string {
@@ -70,7 +82,7 @@ func GetSingletonTopicOrder() *topicOrder {
 	return singletonTopicOrder
 }
 
-func main() {
+func readFileInfos() []*FileInfo {
 	files, err := os.ReadDir("./neetcode")
 	if err != nil {
 		panic(err)
@@ -100,6 +112,24 @@ func main() {
 		}
 		fileInfos = append(fileInfos, fileInfo)
 	}
+	return fileInfos
+}
+
+func writeReadMe(content string) {
+	data, err := os.ReadFile("./README.md")
+	if err != nil {
+		panic(err)
+	}
+	mdFile := string(data)
+	newMDFile := mdFile[:strings.Index(mdFile, ""+mdLeetcodeListStart+"")-1] +
+		content +
+		mdFile[strings.Index(mdFile, mdLeetCodeListEnd)+len(mdLeetCodeListEnd):]
+
+	os.WriteFile("./README.md", []byte(newMDFile), 0644)
+}
+
+func main() {
+	fileInfos := readFileInfos()
 
 	fileInfosByTag := make(map[string][]*FileInfo)
 	for _, fileInfo := range fileInfos {
@@ -107,7 +137,7 @@ func main() {
 	}
 
 	var md strings.Builder
-	mdLeetcodeListStart, mdLeetCodeListEnd := "<!-- leetcode list start -->", "<!-- leetcode list end -->"
+
 	md.WriteString(fmt.Sprintf("\n%s\n", mdLeetcodeListStart))
 	md.WriteString("## Leetcode\n\n")
 	for _, topic := range GetSingletonTopicOrder().Data {
@@ -127,16 +157,7 @@ func main() {
 	}
 	md.WriteString(mdLeetCodeListEnd)
 
-	data, err := os.ReadFile("./README.md")
-	if err != nil {
-		panic(err)
-	}
-	mdFile := string(data)
-	newMDFile := mdFile[:strings.Index(mdFile, ""+mdLeetcodeListStart+"")-1] +
-		md.String() +
-		mdFile[strings.Index(mdFile, mdLeetCodeListEnd)+len(mdLeetCodeListEnd):]
-
-	os.WriteFile("./README.md", []byte(newMDFile), 0644)
+	writeReadMe(md.String())
 }
 
 func CreateFileInfo(fileName, tagsInfo string) (*FileInfo, error) {
@@ -146,10 +167,10 @@ func CreateFileInfo(fileName, tagsInfo string) (*FileInfo, error) {
 	}
 	name := fileName[5:strings.Index(fileName, ".go")]
 
+	var otherTags []string
 	mainTag := "todo"
-
 	target := "// tags: "
-	if len(tagsInfo) < len(target) || target != tagsInfo[:len(target)] { // TODO: york
+	if len(tagsInfo) < len(target) || target != tagsInfo[:len(target)] {
 		return &FileInfo{
 			ID:               id,
 			Name:             name,
@@ -157,26 +178,31 @@ func CreateFileInfo(fileName, tagsInfo string) (*FileInfo, error) {
 			IsFreeInLeetcode: true,
 		}, nil
 	}
-	tags := strings.Split(tagsInfo[len(target):], ", ")
+	firstLineEndIdx := strings.Index(tagsInfo, "\n")
+	tags := strings.Split(tagsInfo[len(target):firstLineEndIdx], ", ")
 	if GetSingletonTopicOrder().Visited[tags[0]] {
 		mainTag = tags[0]
-	} else {
-		panic(fmt.Sprint("find no definition tag: ", fileName))
-	}
-	var (
-		otherTags []string
-		star      int
-	)
-	if len(tags) > 1 && len(tags[1]) >= len("star*") && tags[1][:len("star*")-1] == "star" {
-		var err error
-		star, err = strconv.Atoi(string(tags[1][len("star*")-1]))
-		if err != nil {
-			// TODO: york
-			fmt.Println(err)
+		if len(tags) > 1 {
+			otherTags = tags[1:]
 		}
-		otherTags = tags[2:]
 	} else {
-		otherTags = tags[1:]
+		return nil, errors.New(fmt.Sprint("find no definition tag: ", fileName))
+	}
+
+	var (
+		star       int
+		difficulty string
+	)
+	for _, tag := range otherTags {
+		if tag[:len("star*")-1] == "star" {
+			starString := string(tag[len("star*")-1])
+			star, err = strconv.Atoi(starString)
+			if err != nil {
+				return nil, errors.Wrap(err, "star tag format error")
+			}
+		} else if difficultyMap[tag] {
+			difficulty = tag
+		}
 	}
 
 	return &FileInfo{
@@ -186,6 +212,7 @@ func CreateFileInfo(fileName, tagsInfo string) (*FileInfo, error) {
 		OtherTags:        otherTags,
 		HasTags:          true,
 		Star:             star,
+		Difficulty:       difficulty,
 		IsFreeInLeetcode: true,
 	}, nil
 }

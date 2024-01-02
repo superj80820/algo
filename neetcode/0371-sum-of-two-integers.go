@@ -1,4 +1,4 @@
-// tags: bit-manipulation
+// tags: bit-manipulation, medium
 
 // time complexity: O(1)
 // space complexity: O(1)

@@ -1,4 +1,4 @@
-// tags: greedy
+// tags: greedy, medium
 
 func checkValidString(s string) bool {
 	var minLeft, maxLeft int

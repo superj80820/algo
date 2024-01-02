@@ -1,4 +1,4 @@
-// tags: binary-search, star1
+// tags: binary-search, star1, medium
 
 // time complexity: O(logn)
 // space complexity: O(1)

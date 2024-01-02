@@ -1,4 +1,4 @@
-// tags: bit-manipulation, PR
+// tags: bit-manipulation, PR, medium
 
 import "math"
 

@@ -1,4 +1,4 @@
-// tags: advanced-graphs, star3, dijkstra's-algo
+// tags: advanced-graphs, star3, dijkstra's-algo, hard
 
 import "container/heap"
 

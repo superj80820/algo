@@ -1,4 +1,4 @@
-// tags: backtracking, star1
+// tags: backtracking, star1, medium
 
 var numToLetter = map[byte]string{
 	'2': "abc",

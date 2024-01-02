@@ -1,4 +1,4 @@
-// tags: greedy
+// tags: greedy, medium
 
 func partitionLabels(s string) []int {
 	check := make(map[rune]int)
