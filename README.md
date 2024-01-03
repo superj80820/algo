@@ -20,7 +20,7 @@
 | -------- | -------- | -------- | -------- | -------- |
 |[11. container-with-most-water](https://leetcode.com/problems/container-with-most-water/)|⭐⭐⭐|medium|-1||
 |[15. 3sum](https://leetcode.com/problems/3sum/)|⭐⭐⭐|medium|-1|todo(write)|
-|[42. trapping-rain-water](https://leetcode.com/problems/trapping-rain-water/)|⭐⭐⭐|hard|0||
+|[42. trapping-rain-water](https://leetcode.com/problems/trapping-rain-water/)|⭐⭐⭐|hard|-1||
 |[125. valid-palindrome](https://leetcode.com/problems/valid-palindrome/)||easy|-1|todo(write)|
 |[167. two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|⭐⭐⭐|medium|-1||
 ### sliding-window
@@ -49,7 +49,7 @@
 |[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|⭐⭐|medium|-1||
 |[74. search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix/)|⭐|medium|-1||
 |[153. find-minimum-in-rotated-sorted-array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|⭐|medium|-1||
-|[704. binary-search](https://leetcode.com/problems/binary-search/)|⭐⭐⭐|easy|0|todo(write)|
+|[704. binary-search](https://leetcode.com/problems/binary-search/)|⭐⭐⭐|easy|-1|todo(write)|
 |[875. koko-eating-bananas](https://leetcode.com/problems/koko-eating-bananas/)|⭐|medium|-1||
 |[981. time-based-key-value-store](https://leetcode.com/problems/time-based-key-value-store/)|⭐⭐|medium|-1||
 ### linked-list
@@ -96,7 +96,7 @@
 |[215. kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|⭐|medium|-1|PR|
 |[295. find-median-from-data-stream](https://leetcode.com/problems/find-median-from-data-stream/)|⭐⭐|hard|-1||
 |[355. design-twitter](https://leetcode.com/problems/design-twitter/)|⭐⭐⭐|medium|-1||
-|[621. task-scheduler](https://leetcode.com/problems/task-scheduler/)|⭐⭐⭐|medium|0||
+|[621. task-scheduler](https://leetcode.com/problems/task-scheduler/)|⭐⭐⭐|medium|-1||
 |[703. kth-largest-element-in-a-stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)|⭐|easy|-1||
 |[973. k-closest-points-to-origin](https://leetcode.com/problems/k-closest-points-to-origin/)|⭐⭐|medium|-1||
 |[1046. last-stone-weight](https://leetcode.com/problems/last-stone-weight/)|⭐⭐|easy|-1||
@@ -141,7 +141,7 @@
 | Name | Star | Difficulty | Unfamiliar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[5. longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring/)||medium|-1||
-|[70. climbing-stairs](https://leetcode.com/problems/climbing-stairs/)|⭐⭐⭐|easy|0|todo(write)|
+|[70. climbing-stairs](https://leetcode.com/problems/climbing-stairs/)|⭐⭐⭐|easy|-1|todo(write)|
 |[91. decode-ways](https://leetcode.com/problems/decode-ways/)|⭐⭐⭐|medium|-1||
 |[139. word-break](https://leetcode.com/problems/word-break/)|⭐⭐|medium|-1||
 |[152. maximum-product-subarray](https://leetcode.com/problems/maximum-product-subarray/)||medium|-1|todo(write)|
@@ -164,7 +164,7 @@
 |[312. burst-balloons](https://leetcode.com/problems/burst-balloons/)|⭐⭐|hard|-1||
 |[329. longest-increasing-path-in-a-matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)|⭐⭐|hard|-1|topological-sort|
 |[494. target-sum](https://leetcode.com/problems/target-sum/)|⭐⭐⭐|medium|-1|dfs, todo|
-|[518. coin-change-ii](https://leetcode.com/problems/coin-change-ii/)|⭐⭐⭐|medium|0|dfs|
+|[518. coin-change-ii](https://leetcode.com/problems/coin-change-ii/)|⭐⭐⭐|medium|-1|dfs|
 |[1143. longest-common-subsequence](https://leetcode.com/problems/longest-common-subsequence/)|⭐⭐⭐|medium|-1|todo(write)|
 ### greedy
 | Name | Star | Difficulty | Unfamiliar | Tags |
