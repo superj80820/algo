@@ -1,43 +1,43 @@
 {
-	"create_time": "2024-01-04T02:27:01.931102+08:00",
+	"create_time": "2024-01-04T03:48:00.667101+08:00",
 	"easy": [
 		{
 			"ID": 1,
 			"Name": "two-sum",
 			"Done": false,
-			"CurrentScore": 3,
+			"CurrentScore": 2,
 			"Unfamiliar": 0
 		},
 		{
-			"ID": 21,
-			"Name": "merge-two-sorted-lists",
+			"ID": 141,
+			"Name": "linked-list-cycle",
 			"Done": false,
-			"CurrentScore": 3,
+			"CurrentScore": 2,
 			"Unfamiliar": 0
 		}
 	],
 	"medium": [
 		{
-			"ID": 355,
-			"Name": "design-twitter",
+			"ID": 39,
+			"Name": "combination-sum",
 			"Done": false,
-			"CurrentScore": 3,
+			"CurrentScore": 2,
 			"Unfamiliar": 0
 		},
 		{
-			"ID": 309,
-			"Name": "best-time-to-buy-and-sell-stock-with-cooldown",
+			"ID": 146,
+			"Name": "lru-cache",
 			"Done": false,
-			"CurrentScore": 3,
+			"CurrentScore": 2,
 			"Unfamiliar": 0
 		}
 	],
 	"hard": [
 		{
-			"ID": 4,
-			"Name": "median-of-two-sorted-arrays",
+			"ID": 51,
+			"Name": "n-queens",
 			"Done": false,
-			"CurrentScore": 3,
+			"CurrentScore": 2,
 			"Unfamiliar": 0
 		}
 	]

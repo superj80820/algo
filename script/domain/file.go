@@ -40,3 +40,10 @@ type Exam struct {
 	Medium     []*ExamInfo `json:"medium"`
 	Hard       []*ExamInfo `json:"hard"`
 }
+
+type ExamHistory struct {
+	CreateTime      time.Time
+	UnfamiliarScore int
+	ID              int
+	Name            string
+}

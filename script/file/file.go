@@ -33,6 +33,7 @@ type topicOrder struct {
 var singletonTopicOrder *topicOrder
 
 type FileInfo struct {
+	CreateTime       time.Time
 	ID               int
 	Name             string
 	MainTag          string
@@ -40,7 +41,7 @@ type FileInfo struct {
 	HasTags          bool
 	Star             int
 	Difficulty       domain.DifficultyType
-	CurrentScore     int
+	UnfamiliarScore  int
 	IsFreeInLeetcode bool
 }
 
@@ -63,7 +64,7 @@ type fileHandler struct {
 type fileHandlerInterface interface {
 	ReadFileInfosByScore() (map[domain.DifficultyType][]*FileInfo, error)
 	WriteExam(exam *domain.Exam) error
-	ReadFileInfos() []*FileInfo
+	ReadFileInfos() ([]*FileInfo, error)
 	WriteReadMe(content string)
 }
 
@@ -87,8 +88,8 @@ func CreateFileHandler(topicOrderData []string, neetcodeFolderPath, readMeFilePa
 }
 
 type scoreType struct {
-	id    int
-	score int
+	id              int
+	unfamiliarScore int
 }
 
 func (f *fileHandler) WriteExam(exam *domain.Exam) error {
@@ -103,14 +104,12 @@ func (f *fileHandler) WriteExam(exam *domain.Exam) error {
 	return nil
 }
 
-func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileInfo, error) {
-	fileInfos := f.ReadFileInfos()
-
+func (f *fileHandler) readExamFiles() (map[int]*domain.ExamHistory, error) {
 	files, err := os.ReadDir(f.examFilePath)
 	if err != nil {
 		return nil, errors.Wrap(err, "read files failed")
 	}
-	historyScore := make(map[int]int)
+	historyScoreMap := make(map[int]*domain.ExamHistory)
 	for _, file := range files {
 		fileName := file.Name()
 		if !(len(fileName) >= 5 && fileName[:5] == "exam-") {
@@ -124,42 +123,66 @@ func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileI
 		if err := json.Unmarshal(data, &exam); err != nil {
 			return nil, errors.Wrap(err, "json unmarshal failed")
 		}
-		if exam.CreateTime.Sub(time.Now()).Hours() < 72 {
-			continue
-		}
 
-		for _, val := range exam.Easy {
-			if !val.Done {
-				continue
+		fn := func(val *domain.ExamInfo, createTime time.Time) {
+			var unfamiliarScore int
+
+			if val.Done {
+				unfamiliarScore--
 			}
-			historyScore[val.ID]--
-			historyScore[val.ID] += val.Unfamiliar
+			unfamiliarScore += val.Unfamiliar
+
+			var historyScore *domain.ExamHistory
+			if historyScoreVal, ok := historyScoreMap[val.ID]; ok {
+				historyScore = historyScoreVal
+			} else {
+				historyScore = &domain.ExamHistory{
+					ID:         val.ID,
+					Name:       val.Name,
+					CreateTime: createTime,
+				}
+			}
+
+			historyScore.UnfamiliarScore += unfamiliarScore
+
+			historyScoreMap[val.ID] = historyScore
+		}
+		for _, val := range exam.Easy {
+			fn(val, exam.CreateTime)
 		}
 		for _, val := range exam.Medium {
-			if !val.Done {
-				continue
-			}
-			historyScore[val.ID]--
-			historyScore[val.ID] += val.Unfamiliar
+			fn(val, exam.CreateTime)
 		}
 		for _, val := range exam.Hard {
-			if !val.Done {
-				continue
-			}
-			historyScore[val.ID]--
-			historyScore[val.ID] += val.Unfamiliar
+			fn(val, exam.CreateTime)
 		}
 	}
+	return historyScoreMap, nil
+}
 
-	fileInfoMap := make(map[int]*FileInfo, len(fileInfos))
-	scores := make([]*scoreType, len(fileInfos))
-	for idx, fileInfo := range fileInfos {
-		score := fileInfo.Star
-		score += historyScore[fileInfo.ID]
+func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileInfo, error) {
+	fileInfos, err := f.ReadFileInfos()
+	if err != nil {
+		return nil, errors.Wrap(err, "read files information failed")
+	}
+
+	var fileInfosRemoveNotEnough72Hours []*FileInfo
+	for _, fileInfo := range fileInfos {
+		if time.Now().Sub(fileInfo.CreateTime).Hours() < 72 {
+			continue
+		}
+		fileInfosRemoveNotEnough72Hours = append(fileInfosRemoveNotEnough72Hours, fileInfo)
+	}
+
+	fileInfoMap := make(map[int]*FileInfo, len(fileInfosRemoveNotEnough72Hours))
+	scores := make([]*scoreType, len(fileInfosRemoveNotEnough72Hours))
+	for idx, fileInfo := range fileInfosRemoveNotEnough72Hours {
+		unfamiliarScore := fileInfo.Star
+		unfamiliarScore += fileInfo.UnfamiliarScore
 
 		scores[idx] = &scoreType{
-			id:    fileInfo.ID,
-			score: score,
+			id:              fileInfo.ID,
+			unfamiliarScore: unfamiliarScore,
 		}
 
 		fileInfoMap[fileInfo.ID] = fileInfo
@@ -171,20 +194,25 @@ func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileI
 	}
 
 	sort.SliceStable(scores, func(i, j int) bool { // TODO: use heap
-		return scores[i].score > scores[j].score
+		return scores[i].unfamiliarScore > scores[j].unfamiliarScore
 	})
 
 	fileInfosByScore := make(map[domain.DifficultyType][]*FileInfo)
 	for _, score := range scores {
 		fileInfo := fileInfoMap[score.id]
-		fileInfo.CurrentScore = score.score
+		fileInfo.UnfamiliarScore = score.unfamiliarScore
 		fileInfosByScore[fileInfo.Difficulty] = append(fileInfosByScore[fileInfo.Difficulty], fileInfo)
 	}
 
 	return fileInfosByScore, nil
 }
 
-func (f *fileHandler) ReadFileInfos() []*FileInfo {
+func (f *fileHandler) ReadFileInfos() ([]*FileInfo, error) {
+	historyScoreMap, err := f.readExamFiles()
+	if err != nil {
+		return nil, errors.Wrap(err, "read exam files failed")
+	}
+
 	files, err := os.ReadDir(f.neetcodeFolderPath)
 	if err != nil {
 		panic(err)
@@ -197,7 +225,7 @@ func (f *fileHandler) ReadFileInfos() []*FileInfo {
 		}
 		data, err := os.ReadFile(f.neetcodeFolderPath + "/" + fileName)
 		if err != nil {
-			panic(err)
+			return nil, errors.Wrap(err, "read file failed")
 		}
 		fileString := string(data)
 		var firstLineEndIdx int
@@ -210,11 +238,17 @@ func (f *fileHandler) ReadFileInfos() []*FileInfo {
 		firstLine := fileString[:firstLineEndIdx]
 		fileInfo, err := f.createFileInfo(fileName, firstLine)
 		if err != nil {
-			panic(err)
+			return nil, errors.Wrap(err, "create file information")
+		}
+		if historyScore, ok := historyScoreMap[fileInfo.ID]; ok {
+			fileInfo.CreateTime = historyScore.CreateTime
+			fileInfo.UnfamiliarScore = historyScore.UnfamiliarScore
+		} else {
+			fileInfo.UnfamiliarScore = -1
 		}
 		fileInfos = append(fileInfos, fileInfo)
 	}
-	return fileInfos
+	return fileInfos, nil
 }
 
 func (f *fileHandler) WriteReadMe(content string) {

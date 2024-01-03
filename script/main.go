@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -62,21 +63,21 @@ func createExam(easyCount, mediumCount, hardCount int) error {
 		examInstance.Easy = append(examInstance.Easy, &domain.ExamInfo{
 			ID:           fileInfosByScore[domain.DifficultyEasy][i].ID,
 			Name:         fileInfosByScore[domain.DifficultyEasy][i].Name,
-			CurrentScore: fileInfosByScore[domain.DifficultyEasy][i].CurrentScore,
+			CurrentScore: fileInfosByScore[domain.DifficultyEasy][i].UnfamiliarScore,
 		})
 	}
 	for i := 0; i < mediumCount && i < len(fileInfosByScore[domain.DifficultyMedium]); i++ {
 		examInstance.Medium = append(examInstance.Medium, &domain.ExamInfo{
 			ID:           fileInfosByScore[domain.DifficultyMedium][i].ID,
 			Name:         fileInfosByScore[domain.DifficultyMedium][i].Name,
-			CurrentScore: fileInfosByScore[domain.DifficultyMedium][i].CurrentScore,
+			CurrentScore: fileInfosByScore[domain.DifficultyMedium][i].UnfamiliarScore,
 		})
 	}
 	for i := 0; i < hardCount && i < len(fileInfosByScore[domain.DifficultyHard]); i++ {
 		examInstance.Hard = append(examInstance.Hard, &domain.ExamInfo{
 			ID:           fileInfosByScore[domain.DifficultyHard][i].ID,
 			Name:         fileInfosByScore[domain.DifficultyHard][i].Name,
-			CurrentScore: fileInfosByScore[domain.DifficultyHard][i].CurrentScore,
+			CurrentScore: fileInfosByScore[domain.DifficultyHard][i].UnfamiliarScore,
 		})
 	}
 
@@ -90,7 +91,10 @@ func createExam(easyCount, mediumCount, hardCount int) error {
 func updateLeetcodeListForReadMe() {
 	fileHandler := file.CreateFileHandler(topicOrderData, "../neetcode", "../README.md", "./")
 
-	fileInfos := fileHandler.ReadFileInfos()
+	fileInfos, err := fileHandler.ReadFileInfos()
+	if err != nil {
+		panic(fmt.Sprintf("%+v", err))
+	}
 
 	fileInfosByTag := make(map[string][]*file.FileInfo)
 	for _, fileInfo := range fileInfos {
@@ -102,7 +106,7 @@ func updateLeetcodeListForReadMe() {
 	for _, topic := range topicOrderData {
 		tag := topic
 		md.WriteString("### " + topic + "\n")
-		md.WriteString("| Name | Star | Difficulty | Tags |" + "\n")
+		md.WriteString("| Name | Star | Difficulty | Unfamiliar | Tags |" + "\n")
 		md.WriteString("| -------- | -------- | -------- | -------- |" + "\n")
 		for _, fileInfo := range fileInfosByTag[tag] {
 			md.WriteString("|")
@@ -111,6 +115,8 @@ func updateLeetcodeListForReadMe() {
 			md.WriteString(fileInfo.StarToEmoji())
 			md.WriteString("|")
 			md.WriteString(fileInfo.Difficulty.String())
+			md.WriteString("|")
+			md.WriteString(strconv.Itoa(fileInfo.UnfamiliarScore))
 			md.WriteString("|")
 			md.WriteString(strings.Join(fileInfo.OtherTags, ", "))
 			md.WriteString("|\n")
