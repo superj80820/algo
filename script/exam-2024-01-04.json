@@ -1,0 +1,44 @@
+{
+	"create_time": "2024-01-04T02:27:01.931102+08:00",
+	"easy": [
+		{
+			"ID": 1,
+			"Name": "two-sum",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		},
+		{
+			"ID": 21,
+			"Name": "merge-two-sorted-lists",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		}
+	],
+	"medium": [
+		{
+			"ID": 355,
+			"Name": "design-twitter",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		},
+		{
+			"ID": 309,
+			"Name": "best-time-to-buy-and-sell-stock-with-cooldown",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		}
+	],
+	"hard": [
+		{
+			"ID": 4,
+			"Name": "median-of-two-sorted-arrays",
+			"Done": false,
+			"CurrentScore": 3,
+			"Unfamiliar": 0
+		}
+	]
+}

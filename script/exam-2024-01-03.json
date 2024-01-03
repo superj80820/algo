@@ -20,16 +20,16 @@
 		{
 			"ID": 55,
 			"Name": "jump-game",
-			"Done": false,
+			"Done": true,
 			"CurrentScore": 3,
-			"Unfamiliar": 0
+			"Unfamiliar": 1
 		},
 		{
 			"ID": 322,
 			"Name": "coin-change",
-			"Done": false,
+			"Done": true,
 			"CurrentScore": 3,
-			"Unfamiliar": 0
+			"Unfamiliar": 3
 		}
 	],
 	"hard": [
