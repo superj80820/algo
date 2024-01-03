@@ -55,16 +55,3 @@ func (e *examRepo) ReadAll() ([]*domain.Exam, error) {
 	}
 	return exams, nil
 }
-
-// fn := func(val *domain.ExamInfo, createTime time.Time) {
-// 	examInfos = append(examInfos, val)
-// }
-// for _, val := range exam.Easy {
-// 	fn(val, exam.CreateTime)
-// }
-// for _, val := range exam.Medium {
-// 	fn(val, exam.CreateTime)
-// }
-// for _, val := range exam.Hard {
-// 	fn(val, exam.CreateTime)
-// }

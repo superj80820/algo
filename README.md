@@ -4,7 +4,7 @@
 ## Leetcode
 
 ### arrays&hashing
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[1. two-sum](https://leetcode.com/problems/two-sum/)|⭐⭐⭐|easy|||
 |[36. valid-sudoku](https://leetcode.com/problems/valid-sudoku/)||medium|||
@@ -16,7 +16,7 @@
 |[271. encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/)||medium|||
 |[347. top-k-frequent-elements](https://leetcode.com/problems/top-k-frequent-elements/)||medium|||
 ### two-pointers
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[11. container-with-most-water](https://leetcode.com/problems/container-with-most-water/)|⭐⭐⭐|medium|||
 |[15. 3sum](https://leetcode.com/problems/3sum/)|⭐⭐⭐|medium||todo(write)|
@@ -24,7 +24,7 @@
 |[125. valid-palindrome](https://leetcode.com/problems/valid-palindrome/)||easy||todo(write)|
 |[167. two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|⭐⭐⭐|medium|||
 ### sliding-window
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[3. longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|⭐⭐⭐|medium|||
 |[76. minimum-window-substring](https://leetcode.com/problems/minimum-window-substring/)|⭐|hard|||
@@ -33,7 +33,7 @@
 |[424. longest-repeating-character-replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)||medium|||
 |[567. permutation-in-string](https://leetcode.com/problems/permutation-in-string/)||medium|||
 ### stack
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[20. valid-parentheses](https://leetcode.com/problems/valid-parentheses/)|⭐|easy||todo(write)|
 |[22. generate-parentheses](https://leetcode.com/problems/generate-parentheses/)|⭐⭐|medium||todo(write)|
@@ -43,7 +43,7 @@
 |[739. daily-temperatures](https://leetcode.com/problems/daily-temperatures/)|⭐|medium|||
 |[853. car-fleet](https://leetcode.com/problems/car-fleet/)|⭐|medium|||
 ### binary-search
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[4. median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)|⭐⭐⭐|hard|||
 |[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|⭐⭐|medium|||
@@ -53,11 +53,11 @@
 |[875. koko-eating-bananas](https://leetcode.com/problems/koko-eating-bananas/)|⭐|medium|||
 |[981. time-based-key-value-store](https://leetcode.com/problems/time-based-key-value-store/)|⭐⭐|medium|||
 ### linked-list
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[2. add-two-numbers](https://leetcode.com/problems/add-two-numbers/)||medium|||
 |[19. remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|⭐|medium|||
-|[21. merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists/)|⭐⭐⭐|easy|5||
+|[21. merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists/)|⭐⭐⭐|easy|-2||
 |[23. merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists/)|⭐⭐⭐|hard|||
 |[25. reverse-nodes-in-k-group](https://leetcode.com/problems/reverse-nodes-in-k-group/)|⭐⭐|hard|||
 |[138. copy-list-with-random-pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|⭐⭐⭐|medium|||
@@ -67,12 +67,12 @@
 |[206. reverse-linked-list](https://leetcode.com/problems/reverse-linked-list/)|⭐|easy|||
 |[287. find-the-duplicate-number](https://leetcode.com/problems/find-the-duplicate-number/)|⭐⭐⭐|medium|||
 ### trees
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[98. validate-binary-search-tree](https://leetcode.com/problems/validate-binary-search-tree/)|⭐|medium|||
 |[100. same-tree](https://leetcode.com/problems/same-tree/)|⭐|easy||todo(write)|
 |[102. binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|⭐|medium|||
-|[104. maximum-depth-of-binary-tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|⭐⭐⭐|easy|3||
+|[104. maximum-depth-of-binary-tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|⭐⭐⭐|easy|0||
 |[105. construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|⭐⭐|medium|||
 |[110. balanced-binary-tree](https://leetcode.com/problems/balanced-binary-tree/)|⭐⭐|easy||todo(write)|
 |[124. binary-tree-maximum-path-sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|⭐⭐⭐|hard|||
@@ -85,13 +85,13 @@
 |[572. subtree-of-another-tree](https://leetcode.com/problems/subtree-of-another-tree/)|⭐|easy|||
 |[1448. count-good-nodes-in-binary-tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)|⭐⭐|medium|||
 ### tries
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[208. implement-trie-prefix-tree](https://leetcode.com/problems/implement-trie-prefix-tree/)||medium|||
 |[211. design-add-and-search-words-data-structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)||medium|||
 |[212. word-search-ii](https://leetcode.com/problems/word-search-ii/)|⭐⭐⭐|hard|||
 ### heap(priority-queue)
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[215. kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|⭐|medium||PR|
 |[295. find-median-from-data-stream](https://leetcode.com/problems/find-median-from-data-stream/)|⭐⭐|hard|||
@@ -101,7 +101,7 @@
 |[973. k-closest-points-to-origin](https://leetcode.com/problems/k-closest-points-to-origin/)|⭐⭐|medium|||
 |[1046. last-stone-weight](https://leetcode.com/problems/last-stone-weight/)|⭐⭐|easy|||
 ### backtracking
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[17. letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|⭐|medium|||
 |[39. combination-sum](https://leetcode.com/problems/combination-sum/)|⭐⭐⭐|medium|||
@@ -113,7 +113,7 @@
 |[90. subsets-ii](https://leetcode.com/problems/subsets-ii/)|⭐⭐⭐|medium|||
 |[131. palindrome-partitioning](https://leetcode.com/problems/palindrome-partitioning/)|⭐|medium|||
 ### graphs
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[127. word-ladder](https://leetcode.com/problems/word-ladder/)|⭐⭐|hard|||
 |[130. surrounded-regions](https://leetcode.com/problems/surrounded-regions/)|⭐⭐|medium||todo(write)|
@@ -129,7 +129,7 @@
 |[695. max-area-of-island](https://leetcode.com/problems/max-area-of-island/)|⭐|medium|||
 |[994. rotting-oranges](https://leetcode.com/problems/rotting-oranges/)|⭐⭐|medium|||
 ### advanced-graphs
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[269. alien-dictionary](https://leetcode.com/problems/alien-dictionary/)|⭐⭐⭐|hard||PR, YT, leet-code-premium|
 |[332. reconstruct-itinerary](https://leetcode.com/problems/reconstruct-itinerary/)|⭐⭐⭐|hard||PR|
@@ -138,7 +138,7 @@
 |[787. cheapest-flights-within-k-stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)|⭐⭐⭐|medium||bellman-ford-algo|
 |[1584. min-cost-to-connect-all-points](https://leetcode.com/problems/min-cost-to-connect-all-points/)|⭐⭐⭐|medium||prim's-algo, kruskal-algo(todo), leet-code-premium, heap|
 ### 1d-dp
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[5. longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring/)||medium|||
 |[70. climbing-stairs](https://leetcode.com/problems/climbing-stairs/)|⭐⭐⭐|easy||todo(write)|
@@ -148,12 +148,12 @@
 |[198. house-robber](https://leetcode.com/problems/house-robber/)|⭐|medium|||
 |[213. house-robber-ii](https://leetcode.com/problems/house-robber-ii/)|⭐⭐⭐|medium|||
 |[300. longest-increasing-subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)|⭐|medium||todo(write)|
-|[322. coin-change](https://leetcode.com/problems/coin-change/)|⭐⭐⭐|medium|6||
+|[322. coin-change](https://leetcode.com/problems/coin-change/)|⭐⭐⭐|medium|-2||
 |[416. partition-equal-subset-sum](https://leetcode.com/problems/partition-equal-subset-sum/)|⭐⭐|medium|||
 |[647. palindromic-substrings](https://leetcode.com/problems/palindromic-substrings/)|⭐|medium|||
 |[746. min-cost-climbing-stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)|⭐⭐|easy|||
 ### 2d-dp
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[10. regular-expression-matching](https://leetcode.com/problems/regular-expression-matching/)||hard|||
 |[62. unique-paths](https://leetcode.com/problems/unique-paths/)||medium||math(todo)|
@@ -167,18 +167,18 @@
 |[518. coin-change-ii](https://leetcode.com/problems/coin-change-ii/)|⭐⭐⭐|medium||dfs|
 |[1143. longest-common-subsequence](https://leetcode.com/problems/longest-common-subsequence/)|⭐⭐⭐|medium||todo(write)|
 ### greedy
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[45. jump-game-ii](https://leetcode.com/problems/jump-game-ii/)||medium||dp(todo)|
 |[53. maximum-subarray](https://leetcode.com/problems/maximum-subarray/)|⭐⭐|medium|||
-|[55. jump-game](https://leetcode.com/problems/jump-game/)|⭐⭐⭐|medium|4||
+|[55. jump-game](https://leetcode.com/problems/jump-game/)|⭐⭐⭐|medium|-1||
 |[134. gas-station](https://leetcode.com/problems/gas-station/)|⭐⭐|medium|||
 |[678. valid-parenthesis-string](https://leetcode.com/problems/valid-parenthesis-string/)||medium|||
 |[763. partition-labels](https://leetcode.com/problems/partition-labels/)||medium|||
 |[846. hand-of-straights](https://leetcode.com/problems/hand-of-straights/)||medium|||
 |[1899. merge-triplets-to-form-target-triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/)||medium|||
 ### intervals
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[56. merge-intervals](https://leetcode.com/problems/merge-intervals/)||medium|||
 |[57. insert-interval](https://leetcode.com/problems/insert-interval/)||medium|||
@@ -187,7 +187,7 @@
 |[920. meeting-rooms](https://leetcode.com/problems/meeting-rooms/)||hard|||
 |[1851. minimum-interval-to-include-each-query](https://leetcode.com/problems/minimum-interval-to-include-each-query/)||hard|||
 ### math&geometry
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[43. multiply-strings](https://leetcode.com/problems/multiply-strings/)||medium|||
 |[48. rotate-image](https://leetcode.com/problems/rotate-image/)||medium|||
@@ -198,7 +198,7 @@
 |[202. happy-number](https://leetcode.com/problems/happy-number/)|⭐⭐|easy|||
 |[213. detect-squares](https://leetcode.com/problems/detect-squares/)||medium|||
 ### bit-manipulation
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[7. reverse-integer](https://leetcode.com/problems/reverse-integer/)||medium||PR|
 |[136. single-number](https://leetcode.com/problems/single-number/)||easy|||
@@ -208,6 +208,6 @@
 |[338. counting-bits](https://leetcode.com/problems/counting-bits/)||easy|||
 |[371. sum-of-two-integers](https://leetcode.com/problems/sum-of-two-integers/)||medium|||
 ### todo
-| Name | Star | Difficulty | Unfamiliar | Tags |
+| Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 <!-- leetcode list end -->

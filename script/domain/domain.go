@@ -53,7 +53,7 @@ type FileInfo struct {
 	HasTags          bool
 	Star             int
 	Difficulty       DifficultyType
-	UnfamiliarScore  int
+	FamiliarScore    int
 	IsFreeInLeetcode bool
 }
 
@@ -61,7 +61,7 @@ type ExamInfo struct {
 	ID         int
 	Name       string
 	Done       bool
-	Unfamiliar int
+	Familiar   int
 	CreateTime time.Time
 }
 

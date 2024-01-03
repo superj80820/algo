@@ -4,14 +4,14 @@
 			"ID": 21,
 			"Name": "merge-two-sorted-lists",
 			"Done": true,
-			"Unfamiliar": 2,
+			"Familiar": 1,
 			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		},
 		{
 			"ID": 104,
 			"Name": "maximum-depth-of-binary-tree",
 			"Done": true,
-			"Unfamiliar": 0,
+			"Familiar": 3,
 			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		}
 	],
@@ -20,14 +20,14 @@
 			"ID": 55,
 			"Name": "jump-game",
 			"Done": true,
-			"Unfamiliar": 1,
+			"Familiar": 2,
 			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		},
 		{
 			"ID": 322,
 			"Name": "coin-change",
 			"Done": true,
-			"Unfamiliar": 3,
+			"Familiar": 1,
 			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		}
 	],
@@ -36,7 +36,7 @@
 			"ID": 115,
 			"Name": "distinct-subsequences",
 			"Done": false,
-			"Unfamiliar": 0,
+			"Familiar": 0,
 			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		}
 	]

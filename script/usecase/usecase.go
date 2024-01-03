@@ -43,8 +43,8 @@ func CreateExamUseCase(readMeMDRepo domain.ReadMeMDRepo, examRepo domain.ExamRep
 }
 
 type scoreWithID struct {
-	id              int
-	unfamiliarScore int
+	id            int
+	familiarScore int
 }
 
 func (e *examUseCase) CreateExam(easyCount, mediumCount, hardCount int) error {
@@ -62,11 +62,11 @@ func (e *examUseCase) CreateExam(easyCount, mediumCount, hardCount int) error {
 		fileInfoMap[fileInfo.ID] = fileInfos[idx]
 	}
 
-	historyUnfamiliarScore := make(map[int]int)
+	historyFamiliarScore := make(map[int]int)
 	notEnough72HoursMap := make(map[int]bool)
 	fn := func(examInfo *domain.ExamInfo) {
 		if examInfo.Done {
-			historyUnfamiliarScore[examInfo.ID] += examInfo.Unfamiliar
+			historyFamiliarScore[examInfo.ID] += examInfo.Familiar
 		}
 		if time.Now().Sub(examInfo.CreateTime).Hours() < 72 {
 			notEnough72HoursMap[examInfo.ID] = true
@@ -92,30 +92,30 @@ func (e *examUseCase) CreateExam(easyCount, mediumCount, hardCount int) error {
 		fileInfosRemoveNotEnough72Hours = append(fileInfosRemoveNotEnough72Hours, fileInfos[idx])
 	}
 
-	unfamiliarScores := make([]*scoreWithID, len(fileInfosRemoveNotEnough72Hours))
+	familiarScores := make([]*scoreWithID, len(fileInfosRemoveNotEnough72Hours))
 	for idx, fileInfo := range fileInfosRemoveNotEnough72Hours {
-		unfamiliarScore := -1
-		if val, ok := historyUnfamiliarScore[fileInfo.ID]; ok {
-			unfamiliarScore = val
+		familiarScore := -1
+		if val, ok := historyFamiliarScore[fileInfo.ID]; ok {
+			familiarScore = val
 		}
 
-		unfamiliarScores[idx] = &scoreWithID{
-			id:              fileInfo.ID,
-			unfamiliarScore: unfamiliarScore,
+		familiarScores[idx] = &scoreWithID{
+			id:            fileInfo.ID,
+			familiarScore: familiarScore,
 		}
 	}
-	for i := range unfamiliarScores { // shuffle unfamiliar score
+	for i := range familiarScores { // shuffle unfamiliar score
 		j := rand.Intn(i + 1)
-		unfamiliarScores[i], unfamiliarScores[j] = unfamiliarScores[j], unfamiliarScores[i]
+		familiarScores[i], familiarScores[j] = familiarScores[j], familiarScores[i]
 	}
-	sort.SliceStable(unfamiliarScores, func(i, j int) bool { // TODO: use heap
-		return unfamiliarScores[i].unfamiliarScore > unfamiliarScores[j].unfamiliarScore
+	sort.SliceStable(familiarScores, func(i, j int) bool { // TODO: use heap
+		return familiarScores[i].familiarScore < familiarScores[j].familiarScore
 	})
 
 	fileInfoMapByDifficulty := make(map[domain.DifficultyType][]*domain.FileInfo)
-	for _, val := range unfamiliarScores {
+	for _, val := range familiarScores {
 		fileInfo := fileInfoMap[val.id]
-		fileInfo.UnfamiliarScore = val.unfamiliarScore
+		fileInfo.FamiliarScore = val.familiarScore
 		fileInfoMapByDifficulty[fileInfo.Difficulty] = append(fileInfoMapByDifficulty[fileInfo.Difficulty], fileInfo)
 	}
 
@@ -162,26 +162,19 @@ func (e *examUseCase) UpdateReadMe() error {
 			if !val.Done {
 				continue
 			}
-			examsHistoryScoreMap[val.ID] += val.Unfamiliar
+			examsHistoryScoreMap[val.ID] += val.Familiar
 		}
 		for _, val := range exam.Medium {
 			if !val.Done {
 				continue
 			}
-			examsHistoryScoreMap[val.ID] += val.Unfamiliar
+			examsHistoryScoreMap[val.ID] += val.Familiar
 		}
 		for _, val := range exam.Hard {
 			if !val.Done {
 				continue
 			}
-			examsHistoryScoreMap[val.ID] += val.Unfamiliar
-		}
-	}
-	for idx, fileInfo := range fileInfos {
-		if unfamiliarScore, ok := examsHistoryScoreMap[fileInfo.ID]; ok {
-			fileInfos[idx].UnfamiliarScore = fileInfo.Star + unfamiliarScore
-		} else {
-			fileInfos[idx].UnfamiliarScore = -1
+			examsHistoryScoreMap[val.ID] += val.Familiar
 		}
 	}
 
@@ -195,9 +188,14 @@ func (e *examUseCase) UpdateReadMe() error {
 	for _, topic := range e.fileRepo.GetTopicsByOrder() {
 		tag := topic
 		md.WriteString("### " + topic + "\n")
-		md.WriteString("| Name | Star | Difficulty | Unfamiliar | Tags |" + "\n")
+		md.WriteString("| Name | Star | Difficulty | Familiar | Tags |" + "\n")
 		md.WriteString("| -------- | -------- | -------- | -------- | -------- |" + "\n")
 		for _, fileInfo := range fileInfosByTag[tag] {
+			var familiarString string
+			if familiarScore, ok := examsHistoryScoreMap[fileInfo.ID]; ok {
+				familiarString = strconv.Itoa(familiarScore - fileInfo.Star)
+			}
+
 			md.WriteString("|")
 			md.WriteString(fmt.Sprintf("[%d. %s](https://leetcode.com/problems/%s/)", fileInfo.ID, fileInfo.Name, fileInfo.Name))
 			md.WriteString("|")
@@ -205,9 +203,7 @@ func (e *examUseCase) UpdateReadMe() error {
 			md.WriteString("|")
 			md.WriteString(fileInfo.Difficulty.String())
 			md.WriteString("|")
-			if fileInfo.UnfamiliarScore != -1 {
-				md.WriteString(strconv.Itoa(fileInfo.UnfamiliarScore))
-			}
+			md.WriteString(familiarString)
 			md.WriteString("|")
 			md.WriteString(strings.Join(fileInfo.OtherTags, ", "))
 			md.WriteString("|\n")
