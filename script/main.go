@@ -107,7 +107,7 @@ func updateLeetcodeListForReadMe() {
 		tag := topic
 		md.WriteString("### " + topic + "\n")
 		md.WriteString("| Name | Star | Difficulty | Unfamiliar | Tags |" + "\n")
-		md.WriteString("| -------- | -------- | -------- | -------- |" + "\n")
+		md.WriteString("| -------- | -------- | -------- | -------- | -------- |" + "\n")
 		for _, fileInfo := range fileInfosByTag[tag] {
 			md.WriteString("|")
 			md.WriteString(fmt.Sprintf("[%d. %s](https://leetcode.com/problems/%s/)", fileInfo.ID, fileInfo.Name, fileInfo.Name))
