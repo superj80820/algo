@@ -88,8 +88,8 @@ func CreateFileHandler(topicOrderData []string, neetcodeFolderPath, readMeFilePa
 }
 
 type scoreType struct {
-	id                      int
-	unfamiliarScoreWithStar int
+	id              int
+	unfamiliarScore int
 }
 
 func (f *fileHandler) WriteExam(exam *domain.Exam) error {
@@ -102,62 +102,6 @@ func (f *fileHandler) WriteExam(exam *domain.Exam) error {
 		return errors.Wrap(err, "write file failed")
 	}
 	return nil
-}
-
-func (f *fileHandler) readExamFiles() (map[int]*domain.ExamHistory, error) {
-	files, err := os.ReadDir(f.examFilePath)
-	if err != nil {
-		return nil, errors.Wrap(err, "read files failed")
-	}
-	historyScoreMap := make(map[int]*domain.ExamHistory)
-	for _, file := range files {
-		fileName := file.Name()
-		if !(len(fileName) >= 5 && fileName[:5] == "exam-") {
-			continue
-		}
-		data, err := os.ReadFile(f.examFilePath + "/" + fileName)
-		if err != nil {
-			return nil, errors.Wrap(err, "read files failed")
-		}
-		var exam domain.Exam
-		if err := json.Unmarshal(data, &exam); err != nil {
-			return nil, errors.Wrap(err, "json unmarshal failed")
-		}
-
-		fn := func(val *domain.ExamInfo, createTime time.Time) {
-			var unfamiliarScore int
-
-			if val.Done {
-				unfamiliarScore--
-			}
-			unfamiliarScore += val.Unfamiliar
-
-			var historyScore *domain.ExamHistory
-			if historyScoreVal, ok := historyScoreMap[val.ID]; ok {
-				historyScore = historyScoreVal
-			} else {
-				historyScore = &domain.ExamHistory{
-					ID:         val.ID,
-					Name:       val.Name,
-					CreateTime: createTime,
-				}
-			}
-
-			historyScore.UnfamiliarScore += unfamiliarScore
-
-			historyScoreMap[val.ID] = historyScore
-		}
-		for _, val := range exam.Easy {
-			fn(val, exam.CreateTime)
-		}
-		for _, val := range exam.Medium {
-			fn(val, exam.CreateTime)
-		}
-		for _, val := range exam.Hard {
-			fn(val, exam.CreateTime)
-		}
-	}
-	return historyScoreMap, nil
 }
 
 func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileInfo, error) {
@@ -178,8 +122,8 @@ func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileI
 	scores := make([]*scoreType, len(fileInfosRemoveNotEnough72Hours))
 	for idx, fileInfo := range fileInfosRemoveNotEnough72Hours {
 		scores[idx] = &scoreType{
-			id:                      fileInfo.ID,
-			unfamiliarScoreWithStar: fileInfo.UnfamiliarScore + fileInfo.Star,
+			id:              fileInfo.ID,
+			unfamiliarScore: fileInfo.UnfamiliarScore,
 		}
 
 		fileInfoMap[fileInfo.ID] = fileInfo
@@ -191,13 +135,13 @@ func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileI
 	}
 
 	sort.SliceStable(scores, func(i, j int) bool { // TODO: use heap
-		return scores[i].unfamiliarScoreWithStar > scores[j].unfamiliarScoreWithStar
+		return scores[i].unfamiliarScore > scores[j].unfamiliarScore
 	})
 
 	fileInfosByScore := make(map[domain.DifficultyType][]*FileInfo)
 	for _, score := range scores {
 		fileInfo := fileInfoMap[score.id]
-		fileInfo.UnfamiliarScore = score.unfamiliarScoreWithStar
+		fileInfo.UnfamiliarScore = score.unfamiliarScore
 		fileInfosByScore[fileInfo.Difficulty] = append(fileInfosByScore[fileInfo.Difficulty], fileInfo)
 	}
 
@@ -261,6 +205,64 @@ func (f *fileHandler) WriteReadMe(content string) {
 		mdFile[strings.Index(mdFile, mdLeetCodeListEnd)+len(mdLeetCodeListEnd):]
 
 	os.WriteFile(f.readMeFilePath, []byte(newMDFile), 0644)
+}
+
+func (f *fileHandler) readExamFiles() (map[int]*domain.ExamHistory, error) {
+	files, err := os.ReadDir(f.examFilePath)
+	if err != nil {
+		return nil, errors.Wrap(err, "read files failed")
+	}
+	historyScoreMap := make(map[int]*domain.ExamHistory)
+	for _, file := range files {
+		fileName := file.Name()
+		if !(len(fileName) >= 5 && fileName[:5] == "exam-") {
+			continue
+		}
+		data, err := os.ReadFile(f.examFilePath + "/" + fileName)
+		if err != nil {
+			return nil, errors.Wrap(err, "read files failed")
+		}
+		var exam domain.Exam
+		if err := json.Unmarshal(data, &exam); err != nil {
+			return nil, errors.Wrap(err, "json unmarshal failed")
+		}
+
+		fn := func(val *domain.ExamInfo, createTime time.Time) {
+			if !val.Done {
+				return
+			}
+
+			var unfamiliarScore int
+
+			unfamiliarScore--
+			unfamiliarScore += val.Unfamiliar
+
+			var historyScore *domain.ExamHistory
+			if historyScoreVal, ok := historyScoreMap[val.ID]; ok {
+				historyScore = historyScoreVal
+			} else {
+				historyScore = &domain.ExamHistory{
+					ID:         val.ID,
+					Name:       val.Name,
+					CreateTime: createTime,
+				}
+			}
+
+			historyScore.UnfamiliarScore += unfamiliarScore
+
+			historyScoreMap[val.ID] = historyScore
+		}
+		for _, val := range exam.Easy {
+			fn(val, exam.CreateTime)
+		}
+		for _, val := range exam.Medium {
+			fn(val, exam.CreateTime)
+		}
+		for _, val := range exam.Hard {
+			fn(val, exam.CreateTime)
+		}
+	}
+	return historyScoreMap, nil
 }
 
 func createFileInfo(topicOrder *topicOrder) func(fileName, tagsInfo string) (*FileInfo, error) {

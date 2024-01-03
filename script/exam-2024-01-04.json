@@ -1,0 +1,44 @@
+{
+	"create_time": "2024-01-04T04:11:40.686233+08:00",
+	"easy": [
+		{
+			"ID": 746,
+			"Name": "min-cost-climbing-stairs",
+			"Done": false,
+			"CurrentScore": -1,
+			"Unfamiliar": 0
+		},
+		{
+			"ID": 100,
+			"Name": "same-tree",
+			"Done": false,
+			"CurrentScore": -1,
+			"Unfamiliar": 0
+		}
+	],
+	"medium": [
+		{
+			"ID": 11,
+			"Name": "container-with-most-water",
+			"Done": false,
+			"CurrentScore": -1,
+			"Unfamiliar": 0
+		},
+		{
+			"ID": 36,
+			"Name": "valid-sudoku",
+			"Done": false,
+			"CurrentScore": -1,
+			"Unfamiliar": 0
+		}
+	],
+	"hard": [
+		{
+			"ID": 920,
+			"Name": "meeting-rooms",
+			"Done": false,
+			"CurrentScore": -1,
+			"Unfamiliar": 0
+		}
+	]
+}
