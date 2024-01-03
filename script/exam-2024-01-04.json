@@ -1,0 +1,43 @@
+{
+	"easy": [
+		{
+			"ID": 190,
+			"Name": "reverse-bits",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "0001-01-01T00:00:00Z"
+		},
+		{
+			"ID": 704,
+			"Name": "binary-search",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "0001-01-01T00:00:00Z"
+		}
+	],
+	"medium": [
+		{
+			"ID": 48,
+			"Name": "rotate-image",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "0001-01-01T00:00:00Z"
+		},
+		{
+			"ID": 15,
+			"Name": "3sum",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "0001-01-01T00:00:00Z"
+		}
+	],
+	"hard": [
+		{
+			"ID": 329,
+			"Name": "longest-increasing-path-in-a-matrix",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "0001-01-01T00:00:00Z"
+		}
+	]
+}
