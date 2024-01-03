@@ -3,13 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
-	"strconv"
-	"strings"
-	"time"
 
-	"github.com/pkg/errors"
-	"github.com/superj80820/algo/script/domain"
-	"github.com/superj80820/algo/script/file"
+	"github.com/superj80820/algo/script/repository"
+	"github.com/superj80820/algo/script/usecase"
 )
 
 var topicOrderData = []string{
@@ -37,91 +33,20 @@ var topicOrderData = []string{
 func main() {
 	action := os.Getenv("ACTION")
 
+	examRepo := repository.CreateExamRepo("./")
+	fileRepo := repository.CreateFileRepo("../neetcode", topicOrderData)
+	readMeRepo := repository.CreateReadMeMDRepo("../README.md")
+
+	examUseCase := usecase.CreateExamUseCase(readMeRepo, examRepo, fileRepo)
+
 	switch action {
 	case "update-readme":
-		updateLeetcodeListForReadMe()
+		examUseCase.UpdateReadMe()
 	case "create-exam":
-		if err := createExam(2, 2, 1); err != nil {
+		if err := examUseCase.CreateExam(2, 2, 1); err != nil {
 			panic(fmt.Sprintf("%+v", err))
 		}
 	default:
 		panic("no use action argument")
 	}
-}
-
-func createExam(easyCount, mediumCount, hardCount int) error {
-	fileHandler := file.CreateFileHandler(topicOrderData, "../neetcode", "../README.md", "./")
-	fileInfosByScore, err := fileHandler.ReadFileInfosByScore()
-	if err != nil {
-		return errors.Wrap(err, "read file information by score failed")
-	}
-
-	examInstance := domain.Exam{
-		CreateTime: time.Now(),
-	}
-	for i := 0; i < easyCount && i < len(fileInfosByScore[domain.DifficultyEasy]); i++ {
-		examInstance.Easy = append(examInstance.Easy, &domain.ExamInfo{
-			ID:           fileInfosByScore[domain.DifficultyEasy][i].ID,
-			Name:         fileInfosByScore[domain.DifficultyEasy][i].Name,
-			CurrentScore: fileInfosByScore[domain.DifficultyEasy][i].UnfamiliarScore,
-		})
-	}
-	for i := 0; i < mediumCount && i < len(fileInfosByScore[domain.DifficultyMedium]); i++ {
-		examInstance.Medium = append(examInstance.Medium, &domain.ExamInfo{
-			ID:           fileInfosByScore[domain.DifficultyMedium][i].ID,
-			Name:         fileInfosByScore[domain.DifficultyMedium][i].Name,
-			CurrentScore: fileInfosByScore[domain.DifficultyMedium][i].UnfamiliarScore,
-		})
-	}
-	for i := 0; i < hardCount && i < len(fileInfosByScore[domain.DifficultyHard]); i++ {
-		examInstance.Hard = append(examInstance.Hard, &domain.ExamInfo{
-			ID:           fileInfosByScore[domain.DifficultyHard][i].ID,
-			Name:         fileInfosByScore[domain.DifficultyHard][i].Name,
-			CurrentScore: fileInfosByScore[domain.DifficultyHard][i].UnfamiliarScore,
-		})
-	}
-
-	if err := fileHandler.WriteExam(&examInstance); err != nil {
-		return errors.Wrap(err, "write exam failed")
-	}
-
-	return nil
-}
-
-func updateLeetcodeListForReadMe() {
-	fileHandler := file.CreateFileHandler(topicOrderData, "../neetcode", "../README.md", "./")
-
-	fileInfos, err := fileHandler.ReadFileInfos()
-	if err != nil {
-		panic(fmt.Sprintf("%+v", err))
-	}
-
-	fileInfosByTag := make(map[string][]*file.FileInfo)
-	for _, fileInfo := range fileInfos {
-		fileInfosByTag[fileInfo.MainTag] = append(fileInfosByTag[fileInfo.MainTag], fileInfo)
-	}
-
-	var md strings.Builder
-	md.WriteString("## Leetcode\n\n")
-	for _, topic := range topicOrderData {
-		tag := topic
-		md.WriteString("### " + topic + "\n")
-		md.WriteString("| Name | Star | Difficulty | Unfamiliar | Tags |" + "\n")
-		md.WriteString("| -------- | -------- | -------- | -------- | -------- |" + "\n")
-		for _, fileInfo := range fileInfosByTag[tag] {
-			md.WriteString("|")
-			md.WriteString(fmt.Sprintf("[%d. %s](https://leetcode.com/problems/%s/)", fileInfo.ID, fileInfo.Name, fileInfo.Name))
-			md.WriteString("|")
-			md.WriteString(fileInfo.StarToEmoji())
-			md.WriteString("|")
-			md.WriteString(fileInfo.Difficulty.String())
-			md.WriteString("|")
-			md.WriteString(strconv.Itoa(fileInfo.UnfamiliarScore))
-			md.WriteString("|")
-			md.WriteString(strings.Join(fileInfo.OtherTags, ", "))
-			md.WriteString("|\n")
-		}
-	}
-
-	fileHandler.WriteReadMe(md.String())
 }

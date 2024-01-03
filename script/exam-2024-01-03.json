@@ -1,19 +1,18 @@
 {
-	"create_time": "2024-01-03T04:03:26.549207+08:00",
 	"easy": [
 		{
 			"ID": 21,
 			"Name": "merge-two-sorted-lists",
 			"Done": true,
-			"CurrentScore": 3,
-			"Unfamiliar": 2
+			"Unfamiliar": 2,
+			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		},
 		{
 			"ID": 104,
 			"Name": "maximum-depth-of-binary-tree",
 			"Done": true,
-			"CurrentScore": 3,
-			"Unfamiliar": 0
+			"Unfamiliar": 0,
+			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		}
 	],
 	"medium": [
@@ -21,15 +20,15 @@
 			"ID": 55,
 			"Name": "jump-game",
 			"Done": true,
-			"CurrentScore": 3,
-			"Unfamiliar": 1
+			"Unfamiliar": 1,
+			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		},
 		{
 			"ID": 322,
 			"Name": "coin-change",
 			"Done": true,
-			"CurrentScore": 3,
-			"Unfamiliar": 3
+			"Unfamiliar": 3,
+			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		}
 	],
 	"hard": [
@@ -37,8 +36,8 @@
 			"ID": 115,
 			"Name": "distinct-subsequences",
 			"Done": false,
-			"CurrentScore": 3,
-			"Unfamiliar": 0
+			"Unfamiliar": 0,
+			"CreateTime": "2024-01-03T04:03:26.549207+08:00"
 		}
 	]
 }
