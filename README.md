@@ -4,7 +4,7 @@
 
 1. `make create-exam`產生`exam-****-**-**.json`檔
 2. 依照`exam-****-**-**.json`的easy、medium、hard題目進行練習
-3. 完成題目後填選`exam-****-**-**.json`題目的`Done`至`true`，`Familiar`依熟悉程度填寫`(0: 非常不熟、1: 不熟、2: 熟、3: 很熟)`
+3. 完成題目後填選`exam-****-**-**.json`題目的`Done`至`true`，`Familiar`依熟悉程度填寫(0: 非常不熟, 1: 不熟, 2: 熟, 3: 很熟)
 4. `make update-readme`更新README.md
 
 <!-- leetcode list start -->
