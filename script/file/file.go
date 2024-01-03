@@ -88,8 +88,8 @@ func CreateFileHandler(topicOrderData []string, neetcodeFolderPath, readMeFilePa
 }
 
 type scoreType struct {
-	id              int
-	unfamiliarScore int
+	id                      int
+	unfamiliarScoreWithStar int
 }
 
 func (f *fileHandler) WriteExam(exam *domain.Exam) error {
@@ -177,12 +177,9 @@ func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileI
 	fileInfoMap := make(map[int]*FileInfo, len(fileInfosRemoveNotEnough72Hours))
 	scores := make([]*scoreType, len(fileInfosRemoveNotEnough72Hours))
 	for idx, fileInfo := range fileInfosRemoveNotEnough72Hours {
-		unfamiliarScore := fileInfo.Star
-		unfamiliarScore += fileInfo.UnfamiliarScore
-
 		scores[idx] = &scoreType{
-			id:              fileInfo.ID,
-			unfamiliarScore: unfamiliarScore,
+			id:                      fileInfo.ID,
+			unfamiliarScoreWithStar: fileInfo.UnfamiliarScore + fileInfo.Star,
 		}
 
 		fileInfoMap[fileInfo.ID] = fileInfo
@@ -194,13 +191,13 @@ func (f *fileHandler) ReadFileInfosByScore() (map[domain.DifficultyType][]*FileI
 	}
 
 	sort.SliceStable(scores, func(i, j int) bool { // TODO: use heap
-		return scores[i].unfamiliarScore > scores[j].unfamiliarScore
+		return scores[i].unfamiliarScoreWithStar > scores[j].unfamiliarScoreWithStar
 	})
 
 	fileInfosByScore := make(map[domain.DifficultyType][]*FileInfo)
 	for _, score := range scores {
 		fileInfo := fileInfoMap[score.id]
-		fileInfo.UnfamiliarScore = score.unfamiliarScore
+		fileInfo.UnfamiliarScore = score.unfamiliarScoreWithStar
 		fileInfosByScore[fileInfo.Difficulty] = append(fileInfosByScore[fileInfo.Difficulty], fileInfo)
 	}
 
