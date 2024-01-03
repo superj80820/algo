@@ -205,9 +205,7 @@ func (e *examUseCase) UpdateReadMe() error {
 			md.WriteString("|")
 			md.WriteString(fileInfo.Difficulty.String())
 			md.WriteString("|")
-			if fileInfo.UnfamiliarScore == -1 {
-				md.WriteString("haven't practiced yet")
-			} else {
+			if fileInfo.UnfamiliarScore != -1 {
 				md.WriteString(strconv.Itoa(fileInfo.UnfamiliarScore))
 			}
 			md.WriteString("|")
