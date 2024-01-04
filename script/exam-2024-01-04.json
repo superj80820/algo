@@ -3,32 +3,32 @@
 		{
 			"ID": 190,
 			"Name": "reverse-bits",
-			"Done": false,
-			"Familiar": 0,
-			"CreateTime": "0001-01-01T00:00:00Z"
+			"Done": true,
+			"Familiar": 1,
+			"CreateTime": "2024-01-04T04:03:26.549207+08:00"
 		},
 		{
 			"ID": 704,
 			"Name": "binary-search",
-			"Done": false,
-			"Familiar": 0,
-			"CreateTime": "0001-01-01T00:00:00Z"
+			"Done": true,
+			"Familiar": 2,
+			"CreateTime": "2024-01-04T04:03:26.549207+08:00"
 		}
 	],
 	"medium": [
 		{
 			"ID": 48,
 			"Name": "rotate-image",
-			"Done": false,
-			"Familiar": 0,
-			"CreateTime": "0001-01-01T00:00:00Z"
+			"Done": true,
+			"Familiar": 1,
+			"CreateTime": "2024-01-04T04:03:26.549207+08:00"
 		},
 		{
 			"ID": 15,
 			"Name": "3sum",
-			"Done": false,
-			"Familiar": 0,
-			"CreateTime": "0001-01-01T00:00:00Z"
+			"Done": true,
+			"Familiar": 1,
+			"CreateTime": "2024-01-04T04:03:26.549207+08:00"
 		}
 	],
 	"hard": [
@@ -37,7 +37,7 @@
 			"Name": "longest-increasing-path-in-a-matrix",
 			"Done": false,
 			"Familiar": 0,
-			"CreateTime": "0001-01-01T00:00:00Z"
+			"CreateTime": "2024-01-04T04:03:26.549207+08:00"
 		}
 	]
 }

@@ -1,4 +1,4 @@
-// tags: two-pointers, star3, todo(write), medium
+// tags: two-pointers, star3,  medium
 
 // time complexity: O(n)
 // space complexity: O(1)
@@ -6,27 +6,22 @@ func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
 
 	var res [][]int
-	for i := 0; i < len(nums); i++ {
-		if nums[i] > 0 {
-			break
-		}
-		if i > 0 && nums[i] == nums[i-1] {
+	for idx := 0; idx < len(nums); idx++ {
+		if idx > 0 && nums[idx] == nums[idx-1] {
 			continue
 		}
-
-		l, r := i+1, len(nums)-1
-		for l < r {
-			sumNum := nums[i] + nums[l] + nums[r]
-			if sumNum == 0 {
-				res = append(res, []int{nums[i], nums[l], nums[r]})
+		for l, r := idx+1, len(nums)-1; l < r; {
+			sum := nums[idx] + nums[l] + nums[r]
+			if sum == 0 {
+				res = append(res, []int{nums[idx], nums[l], nums[r]})
 				l++
 				r--
-				for nums[l] == nums[l-1] && l < r {
+				for l < r && nums[l] == nums[l-1] {
 					l++
 				}
-			} else if sumNum < 0 {
+			} else if sum < 0 {
 				l++
-			} else if sumNum > 0 {
+			} else if sum > 0 {
 				r--
 			}
 		}

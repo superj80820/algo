@@ -122,20 +122,23 @@ func (e *examUseCase) CreateExam(easyCount, mediumCount, hardCount int) error {
 	var examInstance domain.Exam
 	for i := 0; i < easyCount && i < len(fileInfoMapByDifficulty[domain.DifficultyEasy]); i++ {
 		examInstance.Easy = append(examInstance.Easy, &domain.ExamInfo{
-			ID:   fileInfoMapByDifficulty[domain.DifficultyEasy][i].ID,
-			Name: fileInfoMapByDifficulty[domain.DifficultyEasy][i].Name,
+			ID:         fileInfoMapByDifficulty[domain.DifficultyEasy][i].ID,
+			Name:       fileInfoMapByDifficulty[domain.DifficultyEasy][i].Name,
+			CreateTime: time.Now(),
 		})
 	}
 	for i := 0; i < mediumCount && i < len(fileInfoMapByDifficulty[domain.DifficultyMedium]); i++ {
 		examInstance.Medium = append(examInstance.Medium, &domain.ExamInfo{
-			ID:   fileInfoMapByDifficulty[domain.DifficultyMedium][i].ID,
-			Name: fileInfoMapByDifficulty[domain.DifficultyMedium][i].Name,
+			ID:         fileInfoMapByDifficulty[domain.DifficultyMedium][i].ID,
+			Name:       fileInfoMapByDifficulty[domain.DifficultyMedium][i].Name,
+			CreateTime: time.Now(),
 		})
 	}
 	for i := 0; i < hardCount && i < len(fileInfoMapByDifficulty[domain.DifficultyHard]); i++ {
 		examInstance.Hard = append(examInstance.Hard, &domain.ExamInfo{
-			ID:   fileInfoMapByDifficulty[domain.DifficultyHard][i].ID,
-			Name: fileInfoMapByDifficulty[domain.DifficultyHard][i].Name,
+			ID:         fileInfoMapByDifficulty[domain.DifficultyHard][i].ID,
+			Name:       fileInfoMapByDifficulty[domain.DifficultyHard][i].Name,
+			CreateTime: time.Now(),
 		})
 	}
 
