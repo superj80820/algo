@@ -27,7 +27,7 @@
 | Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[11. container-with-most-water](https://leetcode.com/problems/container-with-most-water/)|⭐⭐⭐|medium|||
-|[15. 3sum](https://leetcode.com/problems/3sum/)|⭐⭐⭐|medium||todo(write)|
+|[15. 3sum](https://leetcode.com/problems/3sum/)|⭐⭐⭐|unknown|-2| medium|
 |[42. trapping-rain-water](https://leetcode.com/problems/trapping-rain-water/)|⭐⭐⭐|hard|||
 |[125. valid-palindrome](https://leetcode.com/problems/valid-palindrome/)||easy||todo(write)|
 |[167. two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|⭐⭐⭐|medium|||
@@ -57,7 +57,7 @@
 |[33. search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|⭐⭐|medium|||
 |[74. search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix/)|⭐|medium|||
 |[153. find-minimum-in-rotated-sorted-array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|⭐|medium|||
-|[704. binary-search](https://leetcode.com/problems/binary-search/)|⭐⭐⭐|easy||todo(write)|
+|[704. binary-search](https://leetcode.com/problems/binary-search/)|⭐⭐⭐|easy|-1||
 |[875. koko-eating-bananas](https://leetcode.com/problems/koko-eating-bananas/)|⭐|medium|||
 |[981. time-based-key-value-store](https://leetcode.com/problems/time-based-key-value-store/)|⭐⭐|medium|||
 ### linked-list
@@ -198,7 +198,7 @@
 | Name | Star | Difficulty | Familiar | Tags |
 | -------- | -------- | -------- | -------- | -------- |
 |[43. multiply-strings](https://leetcode.com/problems/multiply-strings/)||medium|||
-|[48. rotate-image](https://leetcode.com/problems/rotate-image/)||medium|||
+|[48. rotate-image](https://leetcode.com/problems/rotate-image/)||medium|1||
 |[50. powx-n](https://leetcode.com/problems/powx-n/)||medium|||
 |[54. spiral-matrix](https://leetcode.com/problems/spiral-matrix/)||medium|||
 |[66. plus-one](https://leetcode.com/problems/plus-one/)||easy|||
@@ -210,7 +210,7 @@
 | -------- | -------- | -------- | -------- | -------- |
 |[7. reverse-integer](https://leetcode.com/problems/reverse-integer/)||medium||PR|
 |[136. single-number](https://leetcode.com/problems/single-number/)||easy|||
-|[190. reverse-bits](https://leetcode.com/problems/reverse-bits/)||easy|||
+|[190. reverse-bits](https://leetcode.com/problems/reverse-bits/)||easy|1||
 |[191. number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/)||easy|||
 |[268. missing-number](https://leetcode.com/problems/missing-number/)||easy|||
 |[338. counting-bits](https://leetcode.com/problems/counting-bits/)||easy|||
