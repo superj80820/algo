@@ -1,4 +1,4 @@
-// tags: 2d-dp, star3, dfs, todo, medium
+// tags: 2d-dp, star3, dfs, medium
 
 // time complexity: O(n*t)
 // space complexity: O(n*t)

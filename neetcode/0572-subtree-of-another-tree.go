@@ -12,9 +12,6 @@
 // time complexity: O(m * n)
 // space complexity: O(m)
 func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
-	if subRoot == nil {
-		return true
-	}
 	if root == nil {
 		return false
 	}

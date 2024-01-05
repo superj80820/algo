@@ -69,7 +69,7 @@
 |[23. merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists/)|⭐⭐⭐|hard|||
 |[25. reverse-nodes-in-k-group](https://leetcode.com/problems/reverse-nodes-in-k-group/)|⭐⭐|hard|||
 |[138. copy-list-with-random-pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|⭐⭐⭐|medium|||
-|[141. linked-list-cycle](https://leetcode.com/problems/linked-list-cycle/)|⭐⭐⭐|easy||todo(write)|
+|[141. linked-list-cycle](https://leetcode.com/problems/linked-list-cycle/)|⭐⭐⭐|easy|0|todo(write)|
 |[143. reorder-list](https://leetcode.com/problems/reorder-list/)|⭐|medium|||
 |[146. lru-cache](https://leetcode.com/problems/lru-cache/)|⭐⭐⭐|medium||todo(write)|
 |[206. reverse-linked-list](https://leetcode.com/problems/reverse-linked-list/)|⭐|easy|||
@@ -90,7 +90,7 @@
 |[235. lowest-common-ancestor-of-a-binary-search-tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)|⭐⭐|medium||todo(write)|
 |[297. serialize-and-deserialize-binary-tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|⭐|hard|||
 |[543. diameter-of-binary-tree](https://leetcode.com/problems/diameter-of-binary-tree/)|⭐|easy|||
-|[572. subtree-of-another-tree](https://leetcode.com/problems/subtree-of-another-tree/)|⭐|easy|||
+|[572. subtree-of-another-tree](https://leetcode.com/problems/subtree-of-another-tree/)|⭐|easy|0||
 |[1448. count-good-nodes-in-binary-tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)|⭐⭐|medium|||
 ### tries
 | Name | Star | Difficulty | Familiar | Tags |
@@ -171,7 +171,7 @@
 |[309. best-time-to-buy-and-sell-stock-with-cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|⭐⭐⭐|medium||dfs, todo-space-optimize|
 |[312. burst-balloons](https://leetcode.com/problems/burst-balloons/)|⭐⭐|hard|||
 |[329. longest-increasing-path-in-a-matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)|⭐⭐|hard||topological-sort|
-|[494. target-sum](https://leetcode.com/problems/target-sum/)|⭐⭐⭐|medium||dfs, todo|
+|[494. target-sum](https://leetcode.com/problems/target-sum/)|⭐⭐⭐|medium|-2|dfs|
 |[518. coin-change-ii](https://leetcode.com/problems/coin-change-ii/)|⭐⭐⭐|medium||dfs|
 |[1143. longest-common-subsequence](https://leetcode.com/problems/longest-common-subsequence/)|⭐⭐⭐|medium||todo(write)|
 ### greedy

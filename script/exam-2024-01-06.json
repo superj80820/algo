@@ -1,0 +1,43 @@
+{
+	"easy": [
+		{
+			"ID": 268,
+			"Name": "missing-number",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "2024-01-06T06:47:38.488277+08:00"
+		},
+		{
+			"ID": 543,
+			"Name": "diameter-of-binary-tree",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "2024-01-06T06:47:38.488278+08:00"
+		}
+	],
+	"medium": [
+		{
+			"ID": 621,
+			"Name": "task-scheduler",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "2024-01-06T06:47:38.488278+08:00"
+		},
+		{
+			"ID": 97,
+			"Name": "interleaving-string",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "2024-01-06T06:47:38.488279+08:00"
+		}
+	],
+	"hard": [
+		{
+			"ID": 84,
+			"Name": "largest-rectangle-in-histogram",
+			"Done": false,
+			"Familiar": 0,
+			"CreateTime": "2024-01-06T06:47:38.488279+08:00"
+		}
+	]
+}
