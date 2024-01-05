@@ -90,7 +90,7 @@
 |[235. lowest-common-ancestor-of-a-binary-search-tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)|⭐⭐|medium||todo(write)|
 |[297. serialize-and-deserialize-binary-tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|⭐|hard|||
 |[543. diameter-of-binary-tree](https://leetcode.com/problems/diameter-of-binary-tree/)|⭐|easy|||
-|[572. subtree-of-another-tree](https://leetcode.com/problems/subtree-of-another-tree/)|⭐|easy|0||
+|[572. subtree-of-another-tree](https://leetcode.com/problems/subtree-of-another-tree/)|⭐⭐|easy|-1||
 |[1448. count-good-nodes-in-binary-tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)|⭐⭐|medium|||
 ### tries
 | Name | Star | Difficulty | Familiar | Tags |
