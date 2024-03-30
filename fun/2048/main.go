@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/superj80820/algo/playground/fun/2048/enum"
-	"github.com/superj80820/algo/playground/fun/2048/handler"
+	"github.com/superj80820/algo/fun/2048/enum"
+	"github.com/superj80820/algo/fun/2048/handler"
 )
 
 func main() {

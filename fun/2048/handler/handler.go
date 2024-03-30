@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/superj80820/algo/playground/fun/2048/enum"
-	"github.com/superj80820/algo/playground/fun/2048/util"
+	"github.com/superj80820/algo/fun/2048/enum"
+	"github.com/superj80820/algo/fun/2048/util"
 )
 
 const WinNum int = 2048

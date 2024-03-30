@@ -1,6 +1,6 @@
 package handler
 
-import "github.com/superj80820/algo/playground/fun/2048/enum"
+import "github.com/superj80820/algo/fun/2048/enum"
 
 type BoardTravelIterator struct {
 	curRow int
