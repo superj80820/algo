@@ -27,3 +27,6 @@ playground/c
 playground/data-structure
 playground/golang/temp
 playground/golang
+
+.clj-kondo
+.lsp
