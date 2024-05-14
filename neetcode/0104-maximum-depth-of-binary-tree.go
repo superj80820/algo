@@ -1,4 +1,5 @@
 // tags: trees, star3, easy
+package neetcode
 
 /**
  * Definition for a binary tree node.
@@ -8,6 +9,8 @@
  *     Right *TreeNode
  * }
  */
+// time complexity: O(n)
+// space complexity: O(n)
 func maxDepth(root *TreeNode) int {
 	var (
 		dfs      func(depth int, root *TreeNode)
@@ -22,6 +25,38 @@ func maxDepth(root *TreeNode) int {
 		dfs(depth+1, root.Right)
 	}
 	dfs(1, root)
+
+	return maxDepth
+}
+
+// time complexity: O(n)
+// space complexity: O(n)
+func maxDepth(root *TreeNode) int {
+	var (
+		maxDepth   int
+		depthStack []int
+		stack      []*TreeNode
+	)
+	current := root
+	curDepth := 1
+	for current != nil || len(stack) > 0 {
+		for current != nil {
+			stack = append(stack, current)
+			depthStack = append(depthStack, curDepth)
+			current = current.Left
+			curDepth++
+		}
+		curDepth = depthStack[len(stack)-1]
+		depthStack = depthStack[:len(stack)-1]
+		current = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		maxDepth = max(maxDepth, curDepth)
+
+		current = current.Right
+		if current != nil {
+			curDepth++
+		}
+	}
 
 	return maxDepth
 }

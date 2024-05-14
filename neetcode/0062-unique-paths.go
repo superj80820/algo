@@ -1,27 +1,23 @@
 // tags: 2d-dp, math(todo), medium
 
-// func uniquePaths(m int, n int) int {
-//     grid := make([][]int, m)
-//     for row := range grid {
-//         grid[row] = make([]int, n)
-//     }
+func uniquePaths(m int, n int) int {
+	matrix := make([][]int, m+1)
+	for i := 0; i <= m; i++ {
+		matrix[i] = make([]int, n+1)
+	}
 
-//     grid[m-1][n-1] = 1
+	for i := m - 1; i >= 0; i-- {
+		for j := n - 1; j >= 0; j-- {
+			if i == m-1 && j == n-1 {
+				matrix[i][j] = 1
+			} else {
+				matrix[i][j] = matrix[i+1][j] + matrix[i][j+1]
+			}
+		}
+	}
 
-//     for row := m-1; row >= 0; row-- {
-//         for col := n-1; col >= 0; col-- {
-//             var right, down int
-//             if col+1 < n {
-//                 right = grid[row][col+1]
-//             }
-//             if row+1 < m {
-//                 down = grid[row+1][col]
-//             }
-//             grid[row][col] += right + down
-//         }
-//     }
-//     return grid[0][0]
-// }
+	return matrix[0][0]
+}
 
 func uniquePaths(m int, n int) int {
 	rowVals := make([]int, n)

@@ -1,5 +1,7 @@
 // tags: tries, medium
 
+package neetcode
+
 type Trie struct {
 	Child [26]*Trie
 	IsEnd bool

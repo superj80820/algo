@@ -3,21 +3,21 @@
 // time complexity: O(n)
 // space complexity: O(1)
 func findDuplicate(nums []int) int {
-	slowVal := nums[0]
-	fastVal := nums[0]
+	slow := nums[0]
+	fast := nums[0]
 	for {
-		slowVal = nums[slowVal]
-		fastVal = nums[nums[fastVal]]
-		if slowVal == fastVal {
+		slow = nums[slow]
+		fast = nums[nums[fast]]
+		if slow == fast {
 			break
 		}
 	}
-	fastVal = nums[0]
-	for slowVal != fastVal {
-		slowVal = nums[slowVal]
-		fastVal = nums[fastVal]
+	fast = nums[0]
+	for slow != fast {
+		slow = nums[slow]
+		fast = nums[fast]
 	}
-	return slowVal
+	return slow
 }
 
 // time complexity: O(n)

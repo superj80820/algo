@@ -55,6 +55,9 @@ func (f *fileRepo) ReadAll() ([]*domain.FileInfo, error) {
 		if fileName[len(fileName)-8:] == "_test.go" {
 			continue
 		}
+		if fileName[len(fileName)-3:] != ".go" {
+			continue
+		}
 		data, err := os.ReadFile(f.neetcodeFolderPath + "/" + fileName)
 		if err != nil {
 			return nil, errors.Wrap(err, "read file failed")

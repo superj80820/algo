@@ -36,6 +36,7 @@ func searchGraph(node int) {
 	visited[node] = true
 	for len(queue) != 0 {
 		front := dequeue(&queue)
+
 		fmt.Println(front)
 		neighbors := fetchNeighbors(front)
 		for _, neighbor := range neighbors {
@@ -90,6 +91,6 @@ func dequeue(queue *[]int) int {
 }
 
 func main() {
-	// searchGraph(1)
-	searchGraphAsync(1)
+	searchGraph(1)
+	// searchGraphAsync(1)
 }

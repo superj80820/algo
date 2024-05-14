@@ -1,6 +1,6 @@
-// tags: two-pointers, star3,  medium
+// tags: two-pointers, star3, medium
 
-// time complexity: O(n)
+// time complexity: O(n^2)
 // space complexity: O(1)
 func threeSum(nums []int) [][]int {
 	sort.Ints(nums)

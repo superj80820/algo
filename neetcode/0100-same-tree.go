@@ -1,4 +1,6 @@
-// tags: trees, star1, todo(write), easy
+// tags: trees, star1, easy
+
+package neetcode
 
 /**
  * Definition for a binary tree node.
@@ -9,5 +11,11 @@
  * }
  */
 func isSameTree(p *TreeNode, q *TreeNode) bool {
-
+	if p == nil && q == nil {
+		return true
+	} else if p != nil && q != nil && p.Val == q.Val {
+		return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+	} else {
+		return false
+	}
 }

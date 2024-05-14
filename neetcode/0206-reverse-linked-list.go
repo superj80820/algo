@@ -1,5 +1,12 @@
 // tags: linked-list, star1, easy
 
+package neetcode
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -17,7 +24,5 @@ func reverseList(head *ListNode) *ListNode {
 		pre = cur
 		cur = temp
 	}
-	head = pre
-
-	return head
+	return pre
 }

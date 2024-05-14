@@ -16,7 +16,7 @@ func (h *IntHeap) Pop() any {
 	return x
 }
 
-// time complexity: O(n+klogn)
+// time complexity: O(n+k*logn)
 // space complexity: O(n)
 func findKthLargest(nums []int, k int) int {
 	pq := IntHeap(nums)
