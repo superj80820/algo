@@ -191,7 +191,7 @@ func (e *examUseCase) UpdateReadMe() error {
 	for _, topic := range e.fileRepo.GetTopicsByOrder() {
 		tag := topic
 		md.WriteString("### " + topic + "\n")
-		md.WriteString("| Name | Star | Difficulty | Familiar | Tags |" + "\n")
+		md.WriteString("| Name | Star | Difficulty | Count | Tags |" + "\n")
 		md.WriteString("| -------- | -------- | -------- | -------- | -------- |" + "\n")
 		for _, fileInfo := range fileInfosByTag[tag] {
 			var familiarString string

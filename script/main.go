@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/superj80820/algo/script/repository"
@@ -41,10 +40,9 @@ func main() {
 
 	switch action {
 	case "update-readme":
-		examUseCase.UpdateReadMe()
-	case "create-exam":
-		if err := examUseCase.CreateExam(2, 2, 1); err != nil {
-			panic(fmt.Sprintf("%+v", err))
+		err := examUseCase.UpdateReadMe()
+		if err != nil {
+			panic(err)
 		}
 	default:
 		panic("no use action argument")

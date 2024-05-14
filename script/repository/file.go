@@ -52,6 +52,9 @@ func (f *fileRepo) ReadAll() ([]*domain.FileInfo, error) {
 	fileInfos := make([]*domain.FileInfo, 0, len(files))
 	for _, file := range files {
 		fileName := file.Name()
+		if fileName[len(fileName)-4:] == ".mod" {
+			continue
+		}
 		if fileName[len(fileName)-8:] == "_test.go" {
 			continue
 		}
