@@ -1,4 +1,4 @@
-// tags: greedy, star2, medium
+// tags: greedy, star2, medium, practice-count:2
 
 // time complexity: O(n)
 // space complexity: O(1)

@@ -122,6 +122,7 @@ func createFileInfo(topicOrder *topicOrder) func(fileName, tagsInfo string) (*do
 			difficulty domain.DifficultyType
 			otherTags  []string
 		)
+		practiceCount := 1
 		for _, tag := range originOtherTags {
 			if len(tag) >= len("star*") && tag[:len("star*")-1] == "star" {
 				starString := string(tag[len("star*")-1])
@@ -131,6 +132,12 @@ func createFileInfo(topicOrder *topicOrder) func(fileName, tagsInfo string) (*do
 				}
 			} else if difficultyType, ok := difficultyMap[tag]; ok {
 				difficulty = difficultyType
+			} else if len(tag) >= len("practice-count:*") && tag[:len("practice-count:*")-1] == "practice-count:" {
+				practiceCountString := string(tag[len("practice-count:"):])
+				practiceCount, err = strconv.Atoi(practiceCountString)
+				if err != nil {
+					return nil, errors.Wrap(err, "practice-count tag format error")
+				}
 			} else {
 				otherTags = append(otherTags, tag)
 			}
@@ -141,6 +148,7 @@ func createFileInfo(topicOrder *topicOrder) func(fileName, tagsInfo string) (*do
 			Name:             name,
 			MainTag:          mainTag,
 			OtherTags:        otherTags,
+			PracticeCount:    practiceCount,
 			HasTags:          true,
 			Star:             star,
 			Difficulty:       difficulty,

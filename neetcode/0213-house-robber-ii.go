@@ -1,4 +1,4 @@
-// tags: 1d-dp, star3, medium
+// tags: 1d-dp, star3, medium, practice-count:3
 
 // time complexity: O(n)
 // space complexity: O(1)

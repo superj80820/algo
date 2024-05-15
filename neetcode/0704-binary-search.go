@@ -1,4 +1,4 @@
-// tags: binary-search, star3, easy
+// tags: binary-search, star3, easy, practice-count:2
 
 // time complexity: O(logn)
 // space complexity: O(1)

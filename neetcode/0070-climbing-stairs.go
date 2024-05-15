@@ -1,6 +1,4 @@
-// tags: 1d-dp, star3, easy
-
-package neetcode
+// tags: 1d-dp, star3, easy, practice-count:2
 
 // time complexity: O(n)
 // space complexity: O(1)

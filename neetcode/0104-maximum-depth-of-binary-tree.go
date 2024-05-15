@@ -1,5 +1,4 @@
-// tags: trees, star3, easy
-package neetcode
+// tags: trees, star3, easy, practice-count:2
 
 /**
  * Definition for a binary tree node.

@@ -1,6 +1,4 @@
-// tags: tries, medium
-
-package neetcode
+// tags: tries, medium, practice-count:2
 
 type Trie struct {
 	Child [26]*Trie

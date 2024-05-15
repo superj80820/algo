@@ -32,11 +32,10 @@ var topicOrderData = []string{
 func main() {
 	action := os.Getenv("ACTION")
 
-	examRepo := repository.CreateExamRepo("./")
 	fileRepo := repository.CreateFileRepo("../neetcode", topicOrderData)
 	readMeRepo := repository.CreateReadMeMDRepo("../README.md")
 
-	examUseCase := usecase.CreateExamUseCase(readMeRepo, examRepo, fileRepo)
+	examUseCase := usecase.CreateAlgoUseCase(readMeRepo, fileRepo)
 
 	switch action {
 	case "update-readme":

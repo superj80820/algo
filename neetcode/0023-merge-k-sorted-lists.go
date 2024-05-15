@@ -1,4 +1,4 @@
-// tags: linked-list, star3, hard
+// tags: linked-list, star3, hard, practice-count:2
 
 /**
  * Definition for singly-linked list.

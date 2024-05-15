@@ -1,4 +1,4 @@
-// tags: arrays&hashing, medium
+// tags: arrays&hashing, medium, practice-count:2
 
 // time complexity: O(m * n)
 // space complexity: O(m * n)

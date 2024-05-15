@@ -1,4 +1,4 @@
-// tags: linked-list, star3, medium
+// tags: linked-list, star3, medium, practice-count:2
 
 /**
  * Definition for a Node.

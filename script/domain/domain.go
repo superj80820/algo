@@ -7,18 +7,12 @@ type FileRepo interface {
 	GetTopicsByOrder() []string
 }
 
-type ExamRepo interface {
-	ReadAll() ([]*Exam, error)
-	Create(exam *Exam) error
-}
-
 type ReadMeMDRepo interface {
 	Write(content string) error
 }
 
 type ExamUseCase interface {
 	UpdateReadMe() error
-	CreateExam(easyCount, mediumCount, hardCount int) error
 }
 
 type DifficultyType int
@@ -50,6 +44,7 @@ type FileInfo struct {
 	Name             string
 	MainTag          string
 	OtherTags        []string
+	PracticeCount    int
 	HasTags          bool
 	Star             int
 	Difficulty       DifficultyType

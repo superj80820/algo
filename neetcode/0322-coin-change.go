@@ -1,6 +1,4 @@
-// tags: 1d-dp, star3, medium
-
-package neetcode
+// tags: 1d-dp, star3, medium, practice-count:3
 
 import "math"
 

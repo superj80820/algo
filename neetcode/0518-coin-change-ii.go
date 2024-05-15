@@ -1,4 +1,4 @@
-// tags: 2d-dp, star3, dfs, medium
+// tags: 2d-dp, star3, dfs, medium, practice-count:3
 
 // time complexity: O(m*n)
 // space complexity: O(m*n)

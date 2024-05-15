@@ -1,4 +1,4 @@
-// tags: trees, star1, easy
+// tags: trees, star1, easy, practice-count:2
 
 package leetcode
 

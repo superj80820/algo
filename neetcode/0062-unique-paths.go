@@ -1,4 +1,4 @@
-// tags: 2d-dp, math(todo), medium
+// tags: 2d-dp, math(todo), medium, practice-count:2
 
 func uniquePaths(m int, n int) int {
 	matrix := make([][]int, m+1)

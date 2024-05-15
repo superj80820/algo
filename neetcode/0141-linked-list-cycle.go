@@ -1,4 +1,4 @@
-// tags: linked-list, star3, todo(write), easy
+// tags: linked-list, star3, todo(write), easy, practice-count:2
 
 /**
  * Definition for singly-linked list.

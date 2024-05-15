@@ -1,4 +1,4 @@
-// tags: linked-list, star3, medium
+// tags: linked-list, star3, medium, practice-count:2
 
 // time complexity: O(n)
 // space complexity: O(1)
