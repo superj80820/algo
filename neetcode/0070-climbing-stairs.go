@@ -1,15 +1,19 @@
-// tags: 1d-dp, star3, easy, practice-count:2
+// tags: 1d-dp, star3, easy, practice-count:3
 
 // time complexity: O(n)
 // space complexity: O(1)
 func climbStairs(n int) int {
-	n1, n2, n3 := 0, 0, 1
-	for i := 0; i < n; i++ {
-		n1 = n2
-		n2 = n3
-		n3 = n2 + n1
+	if n == 1 {
+		return 1
 	}
-	return n3
+	n1, n2 := 1, 2
+	for i := 2; i < n; i++ {
+		temp := n2
+		n2 = n1 + n2
+		n1 = temp
+	}
+
+	return n2
 }
 
 // [8,5,3,2,1,1]

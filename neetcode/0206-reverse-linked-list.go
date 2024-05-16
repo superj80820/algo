@@ -1,4 +1,4 @@
-// tags: linked-list, star1, easy, practice-count:2
+// tags: linked-list, star1, easy, practice-count:3
 
 package neetcode
 

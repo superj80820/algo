@@ -1,4 +1,4 @@
-// tags: 1d-dp, star3, medium, practice-count:3
+// tags: 1d-dp, star3, medium, practice-count:4
 
 import "math"
 
