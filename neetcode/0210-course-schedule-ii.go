@@ -6,9 +6,6 @@
 // `e` is number of prerequisites
 func findOrder(numCourses int, prerequisites [][]int) []int {
 	preMap := make(map[int][]int)
-	for i := 0; i < numCourses; i++ {
-		preMap[i] = []int{}
-	}
 	for _, prerequisite := range prerequisites {
 		preMap[prerequisite[0]] = append(preMap[prerequisite[0]], prerequisite[1])
 	}
